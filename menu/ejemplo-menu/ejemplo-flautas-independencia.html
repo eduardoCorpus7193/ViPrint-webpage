@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menú Digital Las Flautas de Independencia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#fde200", // Yellow from the flyer
+              "primary-dark": "#e0c900", // Darker shade for hover/active
+              "background-light": "#f8f9fa", // Light grey for light mode
+              "background-dark": "#1a1a1a", // Deep black/charcoal for dark mode
+              "card-light": "#ffffff",
+              "card-dark": "#2d2d2d",
+            },
+            fontFamily: {
+              display: ['"Fredoka One"', 'cursive'], // Playful font for headers
+              body: ['"Open Sans"', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+            },
+            backgroundImage: {
+                'sparkles': "url('https://www.transparenttextures.com/patterns/stardust.png')",
+            }
+          },
+        },
+      };
+    </script>
+<style>::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fde200;
+            border-radius: 3px;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .text-outline {
+             -webkit-text-stroke: 1px black;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-body text-gray-800 dark:text-gray-100 min-h-screen flex flex-col antialiased transition-colors duration-300">
+<header class="relative bg-black text-white overflow-hidden pb-8 rounded-b-3xl shadow-lg z-10">
+<div class="absolute inset-0 opacity-20 bg-sparkles"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
+<div class="relative z-10 bg-primary text-black text-center py-2 font-bold font-display tracking-wider shadow-md transform -skew-y-2 origin-top-left">
+            ¡GRAN APERTURA!
+        </div>
+<div class="relative z-10 px-4 pt-6 text-center">
+<h1 class="text-3xl md:text-4xl font-display text-primary mb-1 drop-shadow-md">Las FLAUTAS</h1>
+<h2 class="text-2xl md:text-3xl font-display text-white mb-2">DE INDEPENDENCIA</h2>
+<p class="text-sm md:text-base italic text-gray-300">¡Disfruta de las Flautas más GRANDES de Aguascalientes!</p>
+<div class="mt-4 mx-auto w-32 h-32 rounded-full border-4 border-primary overflow-hidden shadow-xl bg-gray-800 relative group">
+<img alt="Plato delicioso de flautas mexicanas" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrPGtk-6RiQInFtjYwaWwGZv2th7m6peuamDlZqQESPR2He6fOu_q2JQvJXV3uM8fYyP1eEVdDJsOxrHVTkn4ARTd1yuOXcjeSbqWhVN--P7H2a9hx4Sh0MCriEv3KcGRrFUT76ZU9Og07BbuZwhnpnnM5pj8-SzkPOyuBUvsJTXOqtt2kHojYK_rYOKvUWa60KYOgjalEbMjJOLfektAP-dAK1K4TXuE12XZdeybuZxg8Gbw3kyeYXdjA23eQcS35cX_z8YLLEVo"/>
+</div>
+</div>
+</header>
+<main class="flex-grow px-4 py-6 space-y-8 max-w-md mx-auto w-full pb-24">
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons text-primary text-2xl">restaurant</span>
+<h3 class="text-xl font-display text-gray-900 dark:text-primary border-b-2 border-primary pb-1 pr-4 inline-block">Orden de Flautas</h3>
+<span class="text-xs text-gray-500 dark:text-gray-400 font-bold ml-auto bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded-full">3 piezas</span>
+</div>
+<div class="space-y-4">
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-md flex justify-between items-center border-l-4 border-primary hover:shadow-lg transition-shadow">
+<div>
+<h4 class="font-bold text-lg">Normales</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Crujientes y deliciosas.</p>
+</div>
+<span class="text-xl font-display text-primary font-bold">$ 80.00</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-md flex justify-between items-start border-l-4 border-primary hover:shadow-lg transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">ESPECIALIDAD</div>
+<div class="pr-2">
+<h4 class="font-bold text-lg">Ahogadas</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-tight">Bañadas en salsa verde, crema y queso.</p>
+</div>
+<span class="text-xl font-display text-primary font-bold whitespace-nowrap">$ 90.00</span>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons text-primary text-2xl">local_pizza</span>
+<h3 class="text-xl font-display text-gray-900 dark:text-primary border-b-2 border-primary pb-1 pr-4 inline-block">Por Pieza</h3>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<h4 class="font-bold text-base">Normales</h4>
+<span class="text-lg font-display text-primary font-bold">$ 30.00</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<div>
+<h4 class="font-bold text-base">Ahogadas</h4>
+<p class="text-[10px] text-gray-500 dark:text-gray-400">En salsa verde</p>
+</div>
+<span class="text-lg font-display text-primary font-bold">$ 35.00</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons text-primary text-2xl">lunch_dining</span>
+<h3 class="text-xl font-display text-gray-900 dark:text-primary border-b-2 border-primary pb-1 pr-4 inline-block">Pambazos</h3>
+</div>
+<div class="space-y-3">
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<h4 class="font-bold">Con Papa</h4>
+<span class="font-display text-primary font-bold">$ 40.00</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<h4 class="font-bold">Papa y Chorizo</h4>
+<span class="font-display text-primary font-bold">$ 45.00</span>
+</div>
+<div class="text-right text-xs text-gray-500 dark:text-gray-400 font-semibold italic">
+                        + Quesillo adicional ........... $ 20.00
+                    </div>
+</div>
+</section>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons text-primary text-2xl">tapas</span>
+<h3 class="text-xl font-display text-gray-900 dark:text-primary border-b-2 border-primary pb-1 pr-4 inline-block">Tacos</h3>
+</div>
+<div class="space-y-3">
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<h4 class="font-bold">Bistec con papas</h4>
+<span class="font-display text-primary font-bold">$ 45.00</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<h4 class="font-bold">Chorizo con papas</h4>
+<span class="font-display text-primary font-bold">$ 45.00</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm flex justify-between items-center">
+<div>
+<h4 class="font-bold">Campechano</h4>
+<p class="text-[10px] text-gray-500 dark:text-gray-400">Bistec con chorizo</p>
+</div>
+<span class="font-display text-primary font-bold">$ 50.00</span>
+</div>
+</div>
+</section>
+</div>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons text-primary text-2xl">local_drink</span>
+<h3 class="text-xl font-display text-gray-900 dark:text-primary border-b-2 border-primary pb-1 pr-4 inline-block">Bebidas</h3>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-md">
+<ul class="divide-y divide-gray-200 dark:divide-gray-700">
+<li class="flex justify-between py-3">
+<span class="text-sm font-medium">Refresco Desechable (600ml)</span>
+<span class="text-primary font-bold">$ 30.00</span>
+</li>
+<li class="flex justify-between py-3">
+<span class="text-sm font-medium">Refresco de Vidrio (500ml)</span>
+<span class="text-primary font-bold">$ 30.00</span>
+</li>
+<li class="flex justify-between py-3 pt-3">
+<span class="text-sm font-medium">Botella de Agua (500ml)</span>
+<span class="text-primary font-bold">$ 15.00</span>
+</li>
+</ul>
+</div>
+</section>
+<div class="text-center mt-6 p-4 border border-dashed border-primary rounded-xl">
+<p class="font-display text-2xl text-primary mb-1">¡Hechas al momento!</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">Pregunta por nuestros combos</p>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 p-4 pb-8 z-50 shadow-2xl">
+<div class="max-w-md mx-auto grid grid-cols-3 gap-4">
+<button class="flex flex-col items-center justify-center space-y-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors group">
+<div class="bg-gray-200 dark:bg-gray-800 p-3 rounded-full group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-icons text-xl">map</span>
+</div>
+<span class="text-xs font-bold">Ubicación</span>
+</button>
+<button class="flex flex-col items-center justify-center space-y-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors group transform -translate-y-4">
+<div class="bg-primary p-4 rounded-full shadow-lg border-4 border-background-light dark:border-background-dark group-hover:bg-white transition-colors">
+<span class="material-icons text-black text-2xl">call</span>
+</div>
+<span class="text-xs font-bold">Llamar</span>
+</button>
+<button class="flex flex-col items-center justify-center space-y-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors group">
+<div class="bg-gray-200 dark:bg-gray-800 p-3 rounded-full group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-icons text-xl">chat</span>
+</div>
+<span class="text-xs font-bold">WhatsApp</span>
+</button>
+</div>
+<div class="text-center mt-2">
+<p class="text-[10px] text-gray-400">Avenida Independencia 513, col-Industrial</p>
+</div>
+</div>
+<script>
+        // Simple script to toggle dark mode based on system preference or manual toggle (implicit)
+        // For this demo, we assume the user might want to see both, but it defaults to system pref.
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+</body></html>

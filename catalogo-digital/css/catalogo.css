@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+body {
+    color: #111;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* FONDO CON BLUR */
+.bg-blur {
+    position: fixed;
+    inset: 0;
+    background: url('https://www.famcapstore.com/cdn/shop/collections/P3030722_45b8e201-6323-477d-90bf-1a9d5ab101a6.jpg?v=1730137730') center/cover no-repeat;
+    filter: blur(6px);
+    transform: scale(1.05);
+    z-index: -2;
+}
+
+.bg-blur::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+/* HEADER SIMPLE + ANIMADO */
+
+.catalog-header {
+    text-align: center;
+    padding: 10px 20px;
+
+    background: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(117, 117, 117, 0.35),
+        rgba(202, 202, 202, 0.35),
+        rgba(75, 75, 75, 0.35)
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 3s ease infinite;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+
+.catalog-header img {
+    height: 120px;
+}
+
+.catalog-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* CATÁLOGO */
+.catalog-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding: 30px;
+}
+
+.product-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s, box-shadow .3s;
+    box-shadow: 0 15px 30px rgba(0,0,0,.2);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    padding: 15px 15px 0;
+}
+
+.product-card p {
+    padding: 0 15px 20px;
+    color: #555;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000000;          /* BLANCO fuerte */
+    z-index: 3;
+    position: relative;
+    margin-right: 25px;
+}
+
+
+
+/* FOOTER */
+.catalog-footer {
+    text-align: center;
+    padding: 25px 15px 40px;
+    color: #fff;
+}
+
+.footer-whatsapp {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* MODAL */
+.product-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 700px;
+    width: 90%;
+    overflow: hidden;
+}
+
+.modal-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.modal-content {
+    max-width: 900px;
+    max-height: 90vh;          /* ocupa casi toda la pantalla */
+    width: 95%;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 18px;
+    padding: 20px;
+    overflow-y: auto;          /* scroll solo si es necesario */
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 65vh;          /* controla la altura de la imagen */
+    object-fit: contain;       /* mantiene proporción */
+    border-radius: 14px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ANIMACIÓN */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        max-height: 92vh;
+        padding: 16px;
+    }
+
+    .modal-content img {
+        max-height: 55vh;
+    }
+}
+@media (max-width: 992px) {
+    .catalog-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .catalog-container {
+        grid-template-columns: 1fr;
+    }
+}

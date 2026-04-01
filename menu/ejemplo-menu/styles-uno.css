@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4") center/cover fixed;
+    color: #fff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    z-index: -1;
+}
+
+/* HEADER */
+.menu-header {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #962c0c, #ff4800, #b60c12, #ffa033);
+    background-size: 300% 300%;
+    animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.menu-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+}
+
+/* SECCIONES */
+section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* CARDS */
+.menu-card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    padding: 18px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #ffb3b3;
+}
+
+/* DESTACADO */
+.highlight-card {
+    display: flex;
+    gap: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.highlight-card img {
+    width: 200px;
+    border-radius: 15px;
+}
+
+/* TAGS */
+.tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.bestseller { background: #ff3d3d; }
+.spicy { background: #ff9800; }
+.veg { background: #4caf50; }
+
+/* COMBO */
+.combo-card {
+    text-align: center;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.combo-card img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+/* HAPPY HOUR */
+.happy-hour {
+    text-align: center;
+    background: rgba(164,22,26,0.85);
+    border-radius: 25px;
+}
+
+/* RESEÑAS */
+.reviews blockquote {
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* FOOTER */
+.menu-footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+}
+
+.floating-actions {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.fab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+}
+
+.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.phone {
+    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+}
+
+.location {
+    background: linear-gradient(135deg, #a4161a, #5a0f14);
+}
+
+.fab i {
+    font-size: 1.2rem;
+}

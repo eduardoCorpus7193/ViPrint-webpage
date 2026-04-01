@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo Digital | Urban Caps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+
+<!-- FONDO -->
+<div class="bg-blur"></div>
+
+<!-- HEADER SIMPLE -->
+<header class="catalog-header">
+    <img src="img/logo-caps.png" alt="Urban Caps Logo">
+</header>
+
+<!-- CATÁLOGO -->
+<section class="catalog-container">
+
+        <div class="product-card" onclick="openModal(
+        'Gorra Snapback',
+        'https://www.konpreshop.mx/cdn/shop/products/6089MT_BLACK_SILVER_LEFT_SLANT_STICKER.png?v=1653008820',
+        'Gorra snapback premium con ajuste trasero, diseño urbano y materiales de alta calidad.'
+    )">
+        <img src="https://www.konpreshop.mx/cdn/shop/products/6089MT_BLACK_SILVER_LEFT_SLANT_STICKER.png?v=1653008820">
+
+        <div class="product-info">
+            <div class="text">
+                <h3>Snapback Premium</h3>
+                <p>Estilo urbano</p>
+            </div>
+
+            <div class="price">$449</div>
+        </div>
+    </div>
+
+    
+
+    <div class="product-card" onclick="openModal(
+        'Gorra Trucker',
+        'https://site-product.innovasport.com/img-test/60565409/60565409_1-1200_x_1200.jpg',
+        'Gorra tipo trucker con malla trasera, ideal para uso diario y looks casuales.'
+    )">
+        <img src="https://site-product.innovasport.com/img-test/60565409/60565409_1-1200_x_1200.jpg">
+        <div class="product-info">
+            <div class="text">
+                <h3>Trucker</h3>
+                <p>Comodidad y estilo</p>
+            </div>
+        <div class="price">$559</div>
+        </div>
+    </div>
+
+
+    <div class="product-card" onclick="openModal(
+        'Gorras Personalizadas',
+        'https://http2.mlstatic.com/D_NQ_NP_853640-MLM80488296894_112024-O-paquete-de-15-gorras-personalizadas.webp',
+        'Personalizamos tus gorras con bordado o impresión. Ideal para marcas, equipos y eventos.'
+    )">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_853640-MLM80488296894_112024-O-paquete-de-15-gorras-personalizadas.webp">
+        <div class="product-info">
+            <div class="text">
+                <h3>Personalizadas</h3>
+                <p>Tu marca y estilo</p>
+            </div>
+        <div class="price">$559</div>
+        </div>
+    </div>
+
+    <div class="product-card" onclick="openModal(
+        'Gorra baseball',
+        'https://store.moma.org/cdn/shop/files/3a2b0b12-bde3-4a63-bba2-b561dbd7de29_5fa67989-c4a0-4bea-a74b-fb25ed894895.jpg?v=1710971142',
+        'Gorra baseball premium con ajuste trasero, diseño deportivo y materiales de alta calidad.'
+    )">
+        <img src="https://store.moma.org/cdn/shop/files/3a2b0b12-bde3-4a63-bba2-b561dbd7de29_5fa67989-c4a0-4bea-a74b-fb25ed894895.jpg?v=1710971142">
+
+        <div class="product-info">
+            <div class="text">
+                <h3>Baseball Premium</h3>
+                <p>Estilo baseball</p>
+            </div>
+
+            <div class="price">$449</div>
+        </div>
+    </div>
+
+    
+
+    <div class="product-card" onclick="openModal(
+        'Gorra Trucker',
+        'https://www.furyshop.mx/cdn/shop/files/d6e0eabe-7330-4bd7-8f2c-bf7f7a36eea0_2048x.jpg?v=1743703849',
+        'Gorra snapback cerrada.'
+    )">
+        <img src="https://www.furyshop.mx/cdn/shop/files/d6e0eabe-7330-4bd7-8f2c-bf7f7a36eea0_2048x.jpg?v=1743703849">
+        <div class="product-info">
+            <div class="text">
+                <h3>Snapback Cerrada</h3>
+                <p>Comodidad y estilo</p>
+            </div>
+        <div class="price">$559</div>
+        </div>
+    </div>
+
+
+    <div class="product-card" onclick="openModal(
+        'Gorras Personalizadas',
+        'https://www.furyshop.mx/cdn/shop/files/14f41400-2a79-4193-bdbf-ea132f5ec2c0_1024x1024.jpg?v=1743712831',
+        'Gorra a la medida, de corona alta y visera plana.'
+    )">
+        <img src="https://www.furyshop.mx/cdn/shop/files/14f41400-2a79-4193-bdbf-ea132f5ec2c0_1024x1024.jpg?v=1743712831">
+        <div class="product-info">
+            <div class="text">
+                <h3>Gorra 59fifty</h3>
+                <p>Corona alta y visera plana</p>
+            </div>
+        <div class="price">$559</div>
+        </div>
+    </div>
+
+</section>
+
+<!-- FOOTER SIMPLE -->
+<footer class="catalog-footer">
+    <p>Av. Paseo de la Cruz 1744, Aguascalientes</p>
+
+    <a href="https://wa.me/5214495169252" class="footer-whatsapp" target="_blank">
+        Cotizar por WhatsApp
+    </a>
+</footer>
+
+<!-- MODAL -->
+<div class="product-modal" id="productModal">
+    <span class="modal-close" onclick="closeModal()">✕</span>
+    <div class="modal" id="productModal">
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Producto">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+    </div>
+</div>
+
+</div>
+
+<script src="js/catalogo.js"></script>
+</body>
+</html>

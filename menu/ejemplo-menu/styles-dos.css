@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4") center/cover fixed;
+    color: #f5f5f5;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+}
+
+/* HEADER */
+.luxury-header {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.restaurant-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #caa35c;
+}
+
+.luxury-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 10px 0;
+}
+
+.luxury-header p {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* SECCIONES */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+/* GRID */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* ITEMS */
+.menu-item {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 18px;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.menu-item span {
+    color: #caa35c;
+    font-size: 1.1rem;
+}
+
+/* SIGNATURE */
+.signature-card {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 22px;
+}
+
+.signature-card img {
+    width: 220px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+/* DEGUSTACIÓN */
+.degustation-card {
+    text-align: center;
+    background: rgba(202,163,92,0.15);
+    padding: 35px;
+    border-radius: 30px;
+}
+
+.degustation-card img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+/* FOOTER */
+.luxury-footer {
+    padding: 28px 16px 20px;
+    text-align: center;
+    background: transparent;
+    color: #aaa;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    color: #ccc;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Contenedor */
+.floating-actions {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+/* Botón base */
+.fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    border-radius: 22px;
+    color: #fff;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-link.whatsapp:hover {
+    color: #2fa36b;
+    border-color: #2fa36b;
+}
+
+.footer-link.phone:hover {
+    color: #c9a24d;
+    border-color: #c9a24d;
+}
+
+.footer-link.location:hover {
+    color: #a4161a;
+    border-color: #a4161a;
+}
+
+
+/* Hover elegante */
+.fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+
+.fab.whatsapp {
+    background: linear-gradient(135deg, #1f7a5f, #2fa36b);
+}
+
+.fab.phone {
+    background: linear-gradient(135deg, #8c6a2f, #c9a24d);
+    color: #111;
+}
+
+.fab.location {
+    background: linear-gradient(135deg, #6d0f16, #a4161a);
+}
+
+
+@media (max-width: 768px) {
+    .signature-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .signature-card img {
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .signature-card h3 {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-actions {
+        right: 12px;
+        bottom: 12px;
+        gap: 8px;
+    }
+
+    .fab {
+        padding: 7px 12px;
+        font-size: 0.7rem;
+    }
+}
+
