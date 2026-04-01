@@ -55,6 +55,37 @@
             '<i class="bi bi-arrow-right"></i>'
         ],
     });
+
+    // Promotions carousel
+    $(".promo-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 700,
+        margin: 18,
+        dots: false,
+        loop: true,
+        nav: true,
+        navText: [
+            '<i class="bi bi-chevron-left"></i>',
+            '<i class="bi bi-chevron-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1.15
+            },
+            576: {
+                items: 1.8
+            },
+            768: {
+                items: 2.4
+            },
+            992: {
+                items: 3
+            },
+            1200: {
+                items: 4
+            }
+        }
+    });
     
 })(jQuery);
 

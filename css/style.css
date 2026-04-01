@@ -1,4 +1,8 @@
-/********** Template CSS **********/
+/********** Template CSS (Depurado) **********/
+
+/* =========================
+   1) Variables
+========================= */
 :root {
     --primary: #A3231E;
     --secondary: #F6F6F6;
@@ -6,6 +10,9 @@
     --dark: #152440;
 }
 
+/* =========================
+   2) Tipografía base
+========================= */
 h1,
 h2,
 .font-weight-bold {
@@ -24,19 +31,19 @@ h6,
     font-weight: 500 !important;
 }
 
-.pt-6 {
-    padding-top: 90px;
-}
-
-.pb-6 {
-    padding-bottom: 90px;
-}
-
+/* =========================
+   3) Espaciados utilitarios
+========================= */
+.pt-6 { padding-top: 90px; }
+.pb-6 { padding-bottom: 90px; }
 .py-6 {
     padding-top: 90px;
     padding-bottom: 90px;
 }
 
+/* =========================
+   4) Botones
+========================= */
 .btn {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
@@ -70,6 +77,20 @@ h6,
     text-align: center;
 }
 
+.viprint-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #6d0f16, #a4161a);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* =========================
+   5) Utilidades de layout
+========================= */
 .back-to-top {
     position: fixed;
     display: none;
@@ -89,6 +110,9 @@ h6,
     transform: skew(40deg);
 }
 
+/* =========================
+   6) Navbar base + Glass
+========================= */
 .navbar-light .navbar-nav .nav-link {
     font-family: 'Barlow', sans-serif;
     padding: 35px 15px;
@@ -108,12 +132,58 @@ h6,
     color: var(--primary);
 }
 
-@media (max-width: 991.98px) {
-    .navbar-light .navbar-nav .nav-link  {
-        padding: 10px 0;
+/* Liquid glass */
+.glass-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 10px 30px rgba(21, 36, 64, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    border-radius: 0 0 16px 16px;
+    transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.glass-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.12) 35%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+}
+
+.glass-nav .navbar-nav .nav-link {
+    color: #152440 !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.sticky-top.glass-nav {
+    background: rgba(255, 255, 255, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 14px 36px rgba(21, 36, 64, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.9) !important;
     }
 }
 
+/* =========================
+   7) Carousel (principal)
+========================= */
 .carousel-caption {
     top: 0;
     left: 0;
@@ -121,18 +191,6 @@ h6,
     bottom: 0;
     background: rgba(21, 36, 64, .7);
     z-index: 1;
-}
-
-@media (max-width: 576px) {
-    .carousel-caption h5 {
-        font-size: 14px;
-        font-weight: 500 !important;
-    }
-
-    .carousel-caption h1 {
-        font-size: 30px;
-        font-weight: 600 !important;
-    }
 }
 
 .carousel-control-prev,
@@ -146,6 +204,37 @@ h6,
     height: 3rem;
 }
 
+/* Hero más pequeño */
+#header-carousel .carousel-item {
+    height: 58vh;
+    min-height: 360px;
+    max-height: 620px;
+}
+
+#header-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#header-carousel .carousel-caption .display-1 {
+    font-size: clamp(1.8rem, 3.8vw, 3rem);
+    line-height: 1.15;
+}
+
+#header-carousel .carousel-caption h5 {
+    font-size: clamp(.8rem, 1.4vw, 1rem);
+    letter-spacing: .08em;
+}
+
+#header-carousel .carousel-caption .btn {
+    padding: .55rem 1.1rem !important;
+    font-size: .92rem;
+}
+
+/* =========================
+   8) Bloques template
+========================= */
 .service-item {
     position: relative;
     overflow: hidden;
@@ -213,6 +302,7 @@ h6,
     left: 0;
 }
 
+/* Testimonial carousel */
 .testimonial-carousel .owl-nav {
     margin-top: 30px;
     display: flex;
@@ -220,7 +310,7 @@ h6,
 }
 
 .testimonial-carousel .owl-nav .owl-prev,
-.testimonial-carousel .owl-nav .owl-next{
+.testimonial-carousel .owl-nav .owl-next {
     position: relative;
     margin: 0 5px;
     width: 45px;
@@ -245,6 +335,7 @@ h6,
     height: 90px;
 }
 
+/* Blog */
 .blog-item img {
     transition: .5s;
 }
@@ -253,10 +344,128 @@ h6,
     transform: scale(1.1);
 }
 
+/* =========================
+   9) Promociones
+========================= */
+.promo-section {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(163, 35, 30, 0.08), transparent 40%),
+        linear-gradient(180deg, #ffffff 0%, #f9f7f7 100%);
+    margin-top: -48px;
+    position: relative;
+    z-index: 3;
+}
 
+.promo-kicker {
+    display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    background: rgba(163, 35, 30, 0.1);
+    border: 1px solid rgba(163, 35, 30, 0.25);
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+}
 
+.promo-title {
+    font-size: clamp(1.7rem, 2.7vw, 2.5rem);
+    color: var(--dark);
+}
 
+.promo-subtitle {
+    color: #5c6472;
+    max-width: 620px;
+}
 
+.promo-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(21, 36, 64, 0.08);
+    box-shadow: 0 16px 40px rgba(21, 36, 64, 0.08);
+}
+
+.promo-image-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #eef1f5;
+}
+
+.promo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.promo-card:hover .promo-image {
+    transform: scale(1.05);
+}
+
+.promo-card-title {
+    margin: 14px 2px 4px;
+    font-size: 1.05rem;
+    color: var(--dark);
+}
+
+.promo-carousel .owl-stage,
+.promo-carousel .owl-item {
+    display: flex;
+}
+
+.promo-carousel .promo-card {
+    width: 100%;
+}
+
+.promo-carousel .owl-nav {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.promo-carousel .owl-nav button.owl-prev,
+.promo-carousel .owl-nav button.owl-next {
+    width: 44px;
+    height: 44px;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    line-height: 1 !important;
+    color: #FFFFFF;
+    background: var(--primary);
+    font-size: 22px;
+    transition: .3s;
+}
+
+.promo-carousel .owl-nav button.owl-prev:hover,
+.promo-carousel .owl-nav button.owl-next:hover {
+    color: var(--dark);
+}
+
+.promo-carousel .owl-nav button.owl-prev span,
+.promo-carousel .owl-nav button.owl-next span {
+    display: block;
+    font-size: 28px;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.promo-carousel .owl-item img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* =========================
+   10) Productos
+========================= */
 .viprint-products {
     background: #f8f9fa;
 }
@@ -272,7 +481,6 @@ h6,
     margin: 10px auto 0;
 }
 
-/* Card */
 .product-card {
     background: #fff;
     border-radius: 18px;
@@ -303,34 +511,22 @@ h6,
     color: #666;
 }
 
-/* Hover */
 .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 55px rgba(0,0,0,0.15);
 }
 
-/* Digital differentiation */
 .product-card.digital {
     border: 2px solid rgba(164,22,26,0.15);
 }
 
-/* CTA */
 .products-cta h4 {
     font-weight: 600;
 }
 
-.viprint-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #6d0f16, #a4161a);
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-/* ===== MODAL ===== */
+/* =========================
+   11) Modal + mini slider
+========================= */
 .product-modal {
     position: fixed;
     inset: 0;
@@ -378,7 +574,6 @@ h6,
     color: #fff;
 }
 
-/* ===== SLIDER MINI ===== */
 .mini-slider {
     position: relative;
     height: 240px;
@@ -399,8 +594,58 @@ h6,
     opacity: 1;
 }
 
-/* ===== ANIMACIÓN ===== */
+/* =========================
+   12) Animaciones
+========================= */
 @keyframes scaleIn {
     from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================
+   13) Responsive
+========================= */
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link {
+        padding: 10px 0;
+    }
+
+    #header-carousel .carousel-item {
+        height: 50vh;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #header-carousel .carousel-item {
+        height: 42vh;
+        min-height: 240px;
+    }
+
+    .promo-section {
+        margin-top: 0;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .promo-card {
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .promo-card-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption h5 {
+        font-size: 14px;
+        font-weight: 500 !important;
+    }
+
+    .carousel-caption h1 {
+        font-size: 30px;
+        font-weight: 600 !important;
+    }
 }
