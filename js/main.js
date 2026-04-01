@@ -59,8 +59,8 @@
     // Promotions carousel
     $(".promo-carousel").owlCarousel({
         autoplay: true,
-        smartSpeed: 700,
-        margin: 18,
+        smartSpeed: 500,
+        margin: 20,
         dots: false,
         loop: true,
         nav: true,
@@ -68,6 +68,8 @@
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ],
+        autoplayTimeout: 1600, // tiempo entre cambios
+        autoplayHoverPause: true,
         responsive: {
             0: {
                 items: 1.15
