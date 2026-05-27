@@ -30,7 +30,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<div>
+<body class="contact-page">
     <!-- Topbar Start -->
     <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
         <div class="row gx-0">
@@ -78,46 +78,106 @@
 
 
     <!-- Page Header Start -->
-    <div class="container-fluid bg-dark p-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="display-4 text-white">Ubicación</h1>
-                <a href="index.html">Inicio</a>
-                <i class="far fa-square text-primary px-2"></i>
-                <a href="">Ubicación</a>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-fluid bg-secondary px-0">
-        <div class="row g-0">
-            <div class="col-lg-6 py-6 px-5">
-                <h2>Envianos un WhatsApp</h2>
-                  <h3><b>Teléfono 1:</b></h3><h1><li><a href="https://api.whatsapp.com/send?phone=+524494325309&text=Hola!%20Me%20gustar%C3%ADa%20mas%20informacion%20acerca%20de%20los%20productos%20de%20ViPrint!"><i class="bi bi-whatsapp" aria-hidden="true"></i> 449 432 53 09</a></li></h1>
-                  <h3><b>Teléfono 2:</b></h3><h1><li><a href="https://api.whatsapp.com/send?phone=+524495169252&text=Hola!%20Me%20gustar%C3%ADa%20mas%20informacion%20acerca%20de%20los%20productos%20de%20ViPrint!"><i class="bi bi-whatsapp" aria-hidden="true"></i> 449 516 92 52</a></li></h1>
-                  <br><br>
-                  <h2>LLámanos </h2>
-                  <h3><b>Teléfono: </b></h3><h1><li><a href="tel:+524493792251"><i class="fa fa-phone" aria-hidden="true"></i> 449 379 22 51</a></li></h1>
-                  <br>
-                  <h2>Envía un correo </h2>
-                  <h3><b>Correo eléctronico:</b><h3><h1><li><a href="mailto:viprintpubli@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> viprintpubli@gmail.com</a></li></h1>
-                  <br><br>
-                  <h2>Encuentranos </h2>
-                  <h3><b>Ubicación:</b></h3><h1><li><a href="https://maps.app.goo.gl/VF35bXrFLyno2MmC9"><i class="fa fa-map-marker" aria-hidden="true"></i> Av. Paseo de la Cruz 1744</a></li></h1>
-            </div>
-            <div class="col-lg-6" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <iframe class="position-relative w-100 h-100"
-                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3702.6145822376393!2d-102.2937082246756!3d21.87239737999647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429f1437a3ccaa3%3A0xb92666eedc00f616!2sViPrint%20PUBLICIDAD!5e0!3m2!1ses-419!2smx!4v1754360939606!5m2!1ses-419!2smx"
-                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <header class="contact-hero">
+        <div class="container py-5 py-lg-6">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7">
+                    <span class="contact-kicker">Encuéntranos</span>
+                    <h1 class="contact-hero-title text-white">Llegar a ViPrint es muy fácil</h1>
+                    <p class="contact-hero-copy text-white-50 mb-4">Te dejamos la dirección, el mapa y los medios de contacto más importantes en una vista clara y moderna.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-primary px-4 py-3" href="#ubicacion-rapida">Ver información</a>
+                        <a class="btn btn-outline-light px-4 py-3" href="contacto.html">Ir a contacto</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-hero-card">
+                        <img class="contact-hero-image" src="img/datos.jpg" alt="Ubicación de ViPrint Publicidad">
+                        <span class="contact-hero-badge"><i class="bi bi-geo-alt-fill me-2"></i>Ubicación física</span>
+                        <div class="contact-hero-overlay">
+                            <div>
+                                <p class="mb-1 text-white-50">Visítanos en Aguascalientes</p>
+                                <h2 class="h4 text-white mb-0">ViPrint Publicidad</h2>
+                            </div>
+                            <i class="bi bi-map-fill contact-hero-icon"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Contact End -->
+    </header>
+    <!-- Page Header End -->
+
+
+    <!-- Location Start -->
+    <main class="container py-5 py-lg-6" id="ubicacion-rapida">
+        <div class="row g-4 g-lg-5 align-items-stretch">
+            <div class="col-lg-6">
+                <section class="contact-panel h-100">
+                    <span class="section-kicker">Datos de contacto</span>
+                    <h2 class="contact-section-title mb-3">Toda la información en un solo lugar</h2>
+                    <p class="contact-section-copy mb-4">Puedes escribirnos, llamarnos o ubicar el negocio directamente desde este bloque.</p>
+
+                    <div class="contact-method-grid">
+                        <article class="contact-method">
+                            <div class="contact-method-icon"><i class="bi bi-whatsapp"></i></div>
+                            <h3>WhatsApp 1</h3>
+                            <p class="mb-3">Atención rápida para cotizaciones.</p>
+                            <a href="https://api.whatsapp.com/send?phone=+524494325309&text=Hola!%20Me%20gustar%C3%ADa%20mas%20informacion%20acerca%20de%20los%20productos%20de%20ViPrint!">449 432 53 09</a>
+                        </article>
+
+                        <article class="contact-method">
+                            <div class="contact-method-icon"><i class="bi bi-whatsapp"></i></div>
+                            <h3>WhatsApp 2</h3>
+                            <p class="mb-3">Otra línea de comunicación directa.</p>
+                            <a href="https://api.whatsapp.com/send?phone=+524495169252&text=Hola!%20Me%20gustar%C3%ADa%20mas%20informacion%20acerca%20de%20los%20productos%20de%20ViPrint!">449 516 92 52</a>
+                        </article>
+
+                        <article class="contact-method">
+                            <div class="contact-method-icon"><i class="fa fa-phone"></i></div>
+                            <h3>Teléfono</h3>
+                            <p class="mb-3">Llámanos si prefieres atención directa.</p>
+                            <a href="tel:+524493792251">449 379 22 51</a>
+                        </article>
+
+                        <article class="contact-method">
+                            <div class="contact-method-icon"><i class="fa fa-envelope"></i></div>
+                            <h3>Correo</h3>
+                            <p class="mb-3">Envíanos archivos o solicitudes.</p>
+                            <a href="mailto:viprintpubli@gmail.com">viprintpubli@gmail.com</a>
+                        </article>
+                    </div>
+
+                    <div class="contact-summary-list mt-4">
+                        <div class="contact-summary-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <p class="mb-0">Av. Paseo de la Cruz 1744, Triana, 20240 Aguascalientes, Ags.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-6">
+                <aside class="contact-side-card h-100">
+                    <div class="contact-side-figure mb-4" style="min-height: 520px;">
+                        <iframe class="position-relative w-100 h-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3702.6145822376393!2d-102.2937082246756!3d21.87239737999647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429f1437a3ccaa3%3A0xb92666eedc00f616!2sViPrint%20PUBLICIDAD!5e0!3m2!1ses-419!2smx!4v1754360939606!5m2!1ses-419!2smx"
+                            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+
+                    <span class="section-kicker">Abrir en mapas</span>
+                    <h2 class="contact-section-title mb-3">Visítanos en Aguascalientes</h2>
+                    <p class="contact-section-copy mb-4">También puedes abrir la ruta directamente en Google Maps con el botón de abajo.</p>
+
+                    <a class="btn btn-primary w-100 py-3" href="https://maps.app.goo.gl/VF35bXrFLyno2MmC9">Ver en Google Maps</a>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <!-- Location End -->
 
 
 
@@ -170,6 +230,7 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="js/main.js"></script>
     <script src="js/main.js"></script>
 </body>
 
