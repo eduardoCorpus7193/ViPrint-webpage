@@ -1,44 +1,446 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>ViPrint Publicidad</title>
+    <title>Catálogo de productos | ViPrint Publicidad</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ViPrin publicidad" name="publicidad">
-    <meta content="ViPrint" name="publicidad aguascalientes">
+    <meta name="description" content="Catálogo de productos y promociones de ViPrint Publicidad en Aguascalientes: banderas, lonas, carpas, toldos, sky dancer, menús digitales y páginas web.">
 
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --vp-primary: #e30613;
+            --vp-primary-dark: #b6000b;
+            --vp-dark: #111827;
+            --vp-muted: #64748b;
+            --vp-soft: #f8fafc;
+            --vp-border: rgba(15, 23, 42, .10);
+            --vp-shadow: 0 22px 60px rgba(15, 23, 42, .12);
+            --vp-radius: 24px;
+        }
+
+        body.products-page {
+            background: #fff;
+        }
+
+        .catalog-hero {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at top right, rgba(227, 6, 19, .25), transparent 32%), linear-gradient(135deg, #121827 0%, #171717 45%, #e30613 120%);
+            color: #fff;
+        }
+
+        .catalog-hero::before,
+        .catalog-hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+            filter: blur(2px);
+        }
+
+        .catalog-hero::before { right: -140px; top: -120px; }
+        .catalog-hero::after { left: -180px; bottom: -180px; }
+
+        .catalog-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .catalog-kicker,
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .8rem;
+            border-radius: 999px;
+            font-family: Barlow, sans-serif;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-size: .78rem;
+        }
+
+        .catalog-kicker {
+            color: #fff;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .20);
+        }
+
+        .section-kicker {
+            color: var(--vp-primary);
+            background: rgba(227, 6, 19, .08);
+            border: 1px solid rgba(227, 6, 19, .14);
+        }
+
+        .catalog-hero-title {
+            font-family: Barlow, sans-serif;
+            font-weight: 800;
+            line-height: .95;
+            letter-spacing: -.04em;
+            font-size: clamp(2.8rem, 7vw, 5.8rem);
+        }
+
+        .catalog-hero-copy {
+            max-width: 690px;
+            color: rgba(255, 255, 255, .78);
+            font-size: 1.08rem;
+        }
+
+        .catalog-hero-card {
+            background: rgba(255, 255, 255, .10);
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: var(--vp-radius);
+            padding: 1rem;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 28px 80px rgba(0,0,0,.26);
+        }
+
+        .catalog-hero-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .catalog-hero-stat {
+            display: grid;
+            grid-template-columns: 54px 1fr;
+            gap: .85rem;
+            align-items: center;
+            background: #fff;
+            color: var(--vp-dark);
+            border-radius: 18px;
+            padding: .9rem;
+            margin-top: 1rem;
+        }
+
+        .catalog-hero-stat i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: var(--vp-primary);
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .catalog-section {
+            padding: 5rem 0;
+        }
+
+        .catalog-section.bg-soft {
+            background: linear-gradient(180deg, #fff 0%, var(--vp-soft) 100%);
+        }
+
+        .section-title {
+            font-family: Barlow, sans-serif;
+            font-weight: 800;
+            color: var(--vp-dark);
+            letter-spacing: -.035em;
+            font-size: clamp(2rem, 4vw, 3.8rem);
+        }
+
+        .section-copy {
+            max-width: 780px;
+            color: var(--vp-muted);
+            font-size: 1.02rem;
+        }
+
+        .filter-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255,255,255,.86);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--vp-border);
+        }
+
+        .filter-chip {
+            border: 1px solid var(--vp-border);
+            background: #fff;
+            color: var(--vp-dark);
+            font-weight: 800;
+            border-radius: 999px;
+            padding: .7rem 1rem;
+            line-height: 1;
+            transition: .2s ease;
+        }
+
+        .filter-chip:hover,
+        .filter-chip.active {
+            background: var(--vp-primary);
+            color: #fff;
+            border-color: var(--vp-primary);
+            box-shadow: 0 10px 26px rgba(227,6,19,.22);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.35rem;
+        }
+
+        .catalog-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--vp-radius);
+            background: #fff;
+            border: 1px solid var(--vp-border);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, .08);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            height: 100%;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(227,6,19,.28);
+            box-shadow: var(--vp-shadow);
+        }
+
+        .catalog-card-media {
+            position: relative;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .catalog-card-media img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: transform .35s ease;
+        }
+
+        .catalog-card:hover .catalog-card-media img {
+            transform: scale(1.04);
+        }
+
+        .promo-card .catalog-card-media img {
+            aspect-ratio: 1 / 1;
+        }
+
+        .product-card .catalog-card-media img {
+            aspect-ratio: 4 / 3;
+        }
+
+        .catalog-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .45rem .7rem;
+            border-radius: 999px;
+            background: rgba(17, 24, 39, .82);
+            color: #fff;
+            font-size: .78rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+        }
+
+        .catalog-content {
+            padding: 1.35rem;
+        }
+
+        .catalog-content h3 {
+            font-family: Barlow, sans-serif;
+            color: var(--vp-dark);
+            font-weight: 800;
+            font-size: 1.45rem;
+            margin-bottom: .55rem;
+        }
+
+        .catalog-content p {
+            color: var(--vp-muted);
+            margin-bottom: 1rem;
+        }
+
+        .spec-list {
+            display: grid;
+            gap: .55rem;
+            padding: 0;
+            margin: 0 0 1.15rem;
+            list-style: none;
+        }
+
+        .spec-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: .55rem;
+            color: #334155;
+            font-size: .95rem;
+        }
+
+        .spec-list i {
+            color: var(--vp-primary);
+            margin-top: .15rem;
+        }
+
+        .catalog-actions {
+            display: flex;
+            gap: .65rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-vp-outline,
+        .btn-vp-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            border-radius: 999px;
+            padding: .72rem 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .2s ease;
+        }
+
+        .btn-vp-primary {
+            background: var(--vp-primary);
+            color: #fff;
+            border: 1px solid var(--vp-primary);
+        }
+
+        .btn-vp-primary:hover {
+            background: var(--vp-primary-dark);
+            color: #fff;
+            border-color: var(--vp-primary-dark);
+        }
+
+        .btn-vp-outline {
+            background: #fff;
+            color: var(--vp-dark);
+            border: 1px solid var(--vp-border);
+        }
+
+        .btn-vp-outline:hover {
+            color: var(--vp-primary);
+            border-color: rgba(227,6,19,.35);
+        }
+
+        .catalog-cta {
+            border-radius: 30px;
+            padding: 2rem;
+            background: linear-gradient(135deg, #111827, #e30613);
+            color: #fff;
+            box-shadow: var(--vp-shadow);
+        }
+
+        .catalog-cta h2 {
+            font-family: Barlow, sans-serif;
+            font-weight: 800;
+            letter-spacing: -.03em;
+        }
+
+        .product-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            background: rgba(15, 23, 42, .78);
+        }
+
+        .product-modal.show { display: flex; }
+
+        .modal-box {
+            width: min(1050px, 100%);
+            max-height: 92vh;
+            overflow: auto;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 0;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 36px 120px rgba(0,0,0,.4);
+        }
+
+        .modal-box img {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            object-fit: cover;
+            background: #f1f5f9;
+        }
+
+        .modal-content-vp {
+            padding: 2rem;
+        }
+
+        .modal-content-vp h2 {
+            font-family: Barlow, sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            color: var(--vp-dark);
+            line-height: .95;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.25rem;
+            z-index: 10000;
+            width: 46px;
+            height: 46px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--vp-dark);
+            font-size: 1.4rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .product-modal.show + .modal-close,
+        .modal-close.show { display: flex; }
+
+        @media (max-width: 991.98px) {
+            .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .modal-box { grid-template-columns: 1fr; }
+            .modal-box img { min-height: auto; aspect-ratio: 1 / 1; }
+        }
+
+        @media (max-width: 575.98px) {
+            .catalog-grid { grid-template-columns: 1fr; }
+            .catalog-section { padding: 3.5rem 0; }
+            .catalog-content { padding: 1rem; }
+            .filter-chip { width: 100%; }
+            .modal-content-vp { padding: 1.25rem; }
+            .catalog-hero-card { margin-top: .5rem; }
+        }
+    </style>
 </head>
 
-<div>
+<body class="products-page">
     <!-- Topbar Start -->
     <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-body py-2 pe-3 border-end" href=""><small>Mision</small></a>
-                    <a class="text-body py-2 px-3 border-end" href=""><small>Vision</small></a>
-                    <a class="text-body py-2 ps-3" href=""><small>Valores</small></a>
+                    <a class="text-body py-2 pe-3 border-end" href="nosotros.html"><small>Misión</small></a>
+                    <a class="text-body py-2 px-3 border-end" href="nosotros.html"><small>Visión</small></a>
+                    <a class="text-body py-2 ps-3" href="nosotros.html"><small>Valores</small></a>
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-end">
@@ -55,11 +457,10 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0 text text-primary"><img src="img/logo.png"  height="70"></h1>
+            <h1 class="m-0 text text-primary"><img src="img/logo.png" height="70" alt="ViPrint Publicidad"></h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -76,177 +477,241 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Page Header Start -->
-    <div class="container-fluid bg-dark p-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="display-4 text-white">Productos</h1>
-                <a href="index.html">Inicio</a>
-                <i class="far fa-square text-primary px-2"></i>
-                <a href="">Servicios</a>
+    <!-- Hero Start -->
+    <header class="catalog-hero py-5 py-lg-6">
+        <div class="container py-4 py-lg-5">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7">
+                    <span class="catalog-kicker"></i> Catálogo ViPrint</span>
+                    <h1 class="catalog-hero-title mt-3 mb-3" style="color: #fff;">Productos que hacen visible tu negocio</h1>
+                    <p class="catalog-hero-copy mb-4">Reúne en una sola página las promociones, productos publicitarios y soluciones digitales de ViPrint. El cliente puede revisar, comparar y pedir cotización por WhatsApp sin perderse.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-primary px-4 py-3 rounded-pill" href="#promociones">Ver promociones</a>
+                        <a class="btn btn-outline-light px-4 py-3 rounded-pill" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20un%20producto%20del%20cat%C3%A1logo.">Cotizar por WhatsApp</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="catalog-hero-card">
+                        <img src="img/promos/maxiventas.png" alt="Promoción Maxiventas ViPrint">
+                        <div class="catalog-hero-stat">
+                            <i class="bi bi-megaphone-fill"></i>
+                            <div>
+                                <strong>Publicidad lista para destacar</strong>
+                                <p class="mb-0 text-muted">Banderas, lonas, carpas, viniles, toldos, sky dancer y más.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </header>
+    <!-- Hero End -->
+
+    <!-- Filters Start -->
+    <div class="filter-bar py-3">
+        <div class="container d-flex flex-wrap gap-2 justify-content-center">
+            <button class="filter-chip active" data-filter="all">Todo el catálogo</button>
+            <button class="filter-chip" data-filter="promos">Promociones</button>
+            <button class="filter-chip" data-filter="exterior">Publicidad exterior</button>
+            <button class="filter-chip" data-filter="eventos">Eventos y activaciones</button>
+            <button class="filter-chip" data-filter="digital">Soluciones digitales</button>
         </div>
     </div>
-    <!-- Page Header End -->
-    
+    <!-- Filters End -->
 
-     <!-- Productos Start -->
-<section class="viprint-products container-fluid py-6 px-5">
-
-    <div class="section-header text-center mb-5">
-        <h1 class="section-title">Soluciones ViPrint</h1>
-        <p class="section-subtitle">
-            De lo físico a lo digital. Todo lo que tu marca necesita para destacar.
-        </p>
-    </div>
-
-    <div class="row g-4">
-
-        <!-- Producto -->
-         <div class="col-lg-4 col-md-6">
-            <div class="product-card"
-                onclick="openModal(
-                    'Botón Luminoso',
-                    'img/boton-luminoso.jpeg',
-                    'Botón luminoso personalizado ideal para fachadas y negocios nocturnos. Alta visibilidad, iluminación LED de bajo consumo y materiales resistentes al exterior.'
-                )">
-                <img src="img/boton-luminoso.jpeg" alt="">
-                <div class="product-content">
-                    <h3>Botón Luminoso</h3>
-                    <p>Personalizado con tu logo.</p>
+    <!-- Promos Start -->
+    <section class="catalog-section bg-soft" id="promociones">
+        <div class="container">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-4 mb-lg-5">
+                <div>
+                    <span class="section-kicker"><i class="bi bi-lightning-charge-fill"></i> Ofertas destacadas</span>
+                    <h2 class="section-title mt-3 mb-2">Promociones disponibles</h2>
+                    <p class="section-copy mb-0">Cada tarjeta muestra la imagen completa de la promoción, una descripción clara y un botón directo para cotizar.</p>
                 </div>
+                <a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20informaci%C3%B3n%20de%20sus%20promociones."><i class="bi bi-whatsapp"></i> Pedir promociones</a>
+            </div>
+
+            <div class="catalog-grid">
+                <article class="catalog-card promo-card" data-category="promos eventos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/activacion.jpeg" alt="Promo Activación ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Activación</h3>
+                        <p>Carpa personalizada de 3 x 3 m con dos banderas, ideal para activaciones de marca, expos y eventos comerciales.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Carpa, telas laterales y tela trasera.</li><li><i class="bi bi-check-circle-fill"></i> Diseño incluido y estructura de acero.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Activación','img/promos/activacion.jpeg','Carpa personalizada para activaciones, puntos de venta y eventos. Incluye carpa 3x3 m, laterales, tela trasera y dos banderas de apoyo visual.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Activaci%C3%B3n.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/sky.jpeg" alt="Promo Sky ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Sky</h3>
+                        <p>Paquete de cuatro banderas para negocios que necesitan presencia fuerte desde la calle.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 4 banderas de 3.5 m x 70 cm.</li><li><i class="bi bi-check-circle-fill"></i> Diseño e instalación dentro de Aguascalientes.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Sky','img/promos/sky.jpeg','Paquete de 4 banderas publicitarias para aumentar visibilidad en fachada, banqueta o acceso principal.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Sky.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/maxiventas.png" alt="Promo Maxiventas ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Maxiventas</h3>
+                        <p>Cuatro banderas de alto impacto para negocios con mucho movimiento peatonal o vehicular.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 4 telas doble impresión.</li><li><i class="bi bi-check-circle-fill"></i> 4 estructuras de acero.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Maxiventas','img/promos/maxiventas.png','Paquete pensado para negocios que quieren verse más grandes, ordenados y profesionales desde el exterior.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Maxiventas.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/pixel.png" alt="Promo Pixel ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Pixel</h3>
+                        <p>Dos banderas grandes para negocios que buscan altura, color y una imagen más llamativa.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 banderas de 4 m x 70 cm.</li><li><i class="bi bi-check-circle-fill"></i> Doble tela y doble impresión.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Pixel','img/promos/pixel.png','Banderas altas para negocios que necesitan destacar a mayor distancia.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Pixel.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/nube.jpeg" alt="Promo Nube ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Nube</h3>
+                        <p>Dos banderas de 3.5 m para restaurantes, tiendas, fruterías, carnicerías y negocios locales.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 banderas de 3.5 m x 70 cm.</li><li><i class="bi bi-check-circle-fill"></i> Diseño gratis por tiempo limitado.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Nube','img/promos/nube.jpeg','Una promoción sencilla y efectiva para hacer más visible tu negocio desde la calle.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Nube.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/nebula.png" alt="Promo Nebula ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Nebula</h3>
+                        <p>Dos banderas con banner incluido para negocios que quieren reforzar su mensaje visual.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 banderas de 3 m x 70 cm.</li><li><i class="bi bi-check-circle-fill"></i> Incluye banner de 1.60 m x 60 cm.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Nebula','img/promos/nebula.png','Paquete de banderas más banner para promocionar productos, servicios o platillos destacados.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Nebula.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/light.png" alt="Promo Light ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Light</h3>
+                        <p>Dos banderas con orilla reflejante, útiles para negocios que quieren verse mejor de día y de noche.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Doble tela, doble impresión.</li><li><i class="bi bi-check-circle-fill"></i> Estructura de acero y orilla reflejante.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Light','img/promos/light.png','Banderas con acabado reflejante para mejorar presencia visual en horarios extendidos.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Light.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/glass.jpeg" alt="Promo Glass ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Glass</h3>
+                        <p>Dos banderas más lona de regalo, buena opción para taquerías, restaurantes y comercios.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 banderas con tela de 3 m.</li><li><i class="bi bi-check-circle-fill"></i> Lona de 1 x 1 m de regalo.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Glass','img/promos/glass.jpeg','Paquete de banderas con lona complementaria para reforzar una promoción o producto principal.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Glass.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/buzz.png" alt="Promo Buzz ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Buzz</h3>
+                        <p>Dos banderas con lona incluida para comunicar ofertas, productos o cambios de temporada.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 banderas de 3 m x 70 cm.</li><li><i class="bi bi-check-circle-fill"></i> Incluye lona de 1.5 x 1.5 m.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Buzz','img/promos/buzz.png','Paquete práctico para negocios que quieren combinar banderas y lona en una sola compra.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Buzz.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/beta.jpeg" alt="Promo Beta ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo Beta</h3>
+                        <p>Dos banderas compactas para negocios que necesitan una entrada accesible a la publicidad exterior.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 banderas de 3 m x 70 cm.</li><li><i class="bi bi-check-circle-fill"></i> Doble tela, doble impresión.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo Beta','img/promos/beta.jpeg','Promoción de entrada para colocar presencia visual frente al negocio con bajo presupuesto.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%20Beta.">Cotizar</a></div>
+                    </div>
+                </article>
+
+                <article class="catalog-card promo-card" data-category="promos eventos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Promo</span><img src="img/promos/skydancer-2.png" alt="Promo 2 Skydancer ViPrint"></div>
+                    <div class="catalog-content">
+                        <h3>Promo 2 Skydancer</h3>
+                        <p>Dos sky dancers de 3.5 m para atraer miradas con movimiento continuo en fachadas y eventos.</p>
+                        <ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> 2 telas, 2 motores y tela de repuesto.</li><li><i class="bi bi-check-circle-fill"></i> Ideal para negocios con alto flujo de personas.</li></ul>
+                        <div class="catalog-actions"><a href="#" class="btn-vp-outline" onclick="openCatalogModal('Promo 2 Skydancer','img/promos/skydancer-2.png','Sky dancers de alto impacto visual, recomendados para aperturas, promociones y puntos de venta.'); return false;">Ver detalle</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20la%20Promo%202%20Skydancer.">Cotizar</a></div>
+                    </div>
+                </article>
             </div>
         </div>
+    </section>
+    <!-- Promos End -->
 
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card">
-                <img src="img/sky-dancer.jpeg" alt="Sky Dancer">
-                <div class="product-content">
-                    <h3>Sky Dancer</h3>
-                    <p>Movimiento que atrae miradas desde lejos.</p>
+    <!-- Products Start -->
+    <section class="catalog-section" id="productos">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker"><i class="bi bi-grid-fill"></i> Productos y servicios</span>
+                <h2 class="section-title mt-3 mb-2">Todo lo que ViPrint ofrece</h2>
+                <p class="section-copy mx-auto mb-0">Además de promociones, el catálogo debe mostrar los productos permanentes que aparecen en el inicio: impresos, estructuras publicitarias y soluciones digitales.</p>
+            </div>
+
+            <div class="catalog-grid">
+                <article class="catalog-card product-card" data-category="exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Exterior</span><img src="img/boton-luminoso.jpeg" alt="Botón luminoso personalizado"></div>
+                    <div class="catalog-content"><h3>Botón luminoso</h3><p>Ideal para fachadas y negocios nocturnos. Ayuda a que tu marca sea reconocible incluso a distancia.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Personalizado con logotipo.</li><li><i class="bi bi-check-circle-fill"></i> Alta visibilidad y presentación profesional.</li></ul><div class="catalog-actions"><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20un%20bot%C3%B3n%20luminoso.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="eventos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Movimiento</span><img src="img/Productos/Skydancer.gif" alt="Sky dancer personalizado"></div>
+                    <div class="catalog-content"><h3>Sky Dancer</h3><p>Publicidad con movimiento para aperturas, promociones, eventos y negocios ubicados sobre avenidas.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Llama la atención de forma inmediata.</li><li><i class="bi bi-check-circle-fill"></i> Personalizable con colores y marca.</li></ul><div class="catalog-actions"><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20un%20Sky%20Dancer.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Más vendido</span><img src="img/Productos/Banderas video (4).gif" alt="Banderas publicitarias"></div>
+                    <div class="catalog-content"><h3>Banderas publicitarias</h3><p>Producto fuerte para fachadas, accesos y banquetas. Da visibilidad inmediata con bajo mantenimiento.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Distintas medidas y acabados.</li><li><i class="bi bi-check-circle-fill"></i> Diseño personalizado para tu giro.</li></ul><div class="catalog-actions"><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20banderas%20publicitarias.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="eventos exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Eventos</span><img src="img/Productos/Carpa.jpeg" alt="Carpas personalizadas"></div>
+                    <div class="catalog-content"><h3>Carpas personalizadas</h3><p>Presencia profesional para expos, activaciones, ferias, eventos deportivos y puntos de venta temporales.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Impresión con logotipo y marca.</li><li><i class="bi bi-check-circle-fill"></i> Puede combinarse con banderas y banners.</li></ul><div class="catalog-actions"><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20una%20carpa%20personalizada.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Fachada</span><img src="img/Productos/Toldo.jpeg" alt="Toldos fijos y enrollables"></div>
+                    <div class="catalog-content"><h3>Toldos fijos y enrollables</h3><p>Protección, imagen y funcionalidad para locales comerciales, restaurantes, cafeterías y negocios de calle.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Branding visible en fachada.</li><li><i class="bi bi-check-circle-fill"></i> Solución útil y publicitaria al mismo tiempo.</li></ul><div class="catalog-actions"><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20un%20toldo.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="exterior">
+                    <div class="catalog-card-media"><span class="catalog-badge">Cristales</span><img src="img/vinil-microperforado.jpeg" alt="Vinil microperforado"></div>
+                    <div class="catalog-content"><h3>Vinil microperforado</h3><p>Publicidad para ventanas y cristales. Permite mostrar tu mensaje hacia afuera sin perder iluminación interior.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Ideal para cristales de negocios y vehículos.</li><li><i class="bi bi-check-circle-fill"></i> Aprovecha espacios que normalmente están vacíos.</li></ul><div class="catalog-actions"><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20vinil%20microperforado.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="digital">
+                    <div class="catalog-card-media"><span class="catalog-badge">Digital</span><img src="img/menu-1.gif" alt="Menú digital"></div>
+                    <div class="catalog-content"><h3>Menú digital</h3><p>Menú compartible por QR o enlace, ideal para restaurantes, cafeterías, bares y negocios de comida.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Editable y visible desde celular.</li><li><i class="bi bi-check-circle-fill"></i> Puede incluir WhatsApp, ubicación y promociones.</li></ul><div class="catalog-actions"><a class="btn-vp-outline" href="https://viprint.com.mx/menu/ejemplo-menu/menu-uno.html">Ver ejemplo</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20un%20men%C3%BA%20digital.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="digital">
+                    <div class="catalog-card-media"><span class="catalog-badge">Digital</span><img src="img/Catalogo.gif" alt="Catálogo digital"></div>
+                    <div class="catalog-content"><h3>Catálogo digital</h3><p>Presenta productos, precios y promociones en un enlace profesional, fácil de mandar por WhatsApp.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Buena opción para ventas por redes sociales.</li><li><i class="bi bi-check-circle-fill"></i> Incluye contacto, ubicación y botones directos.</li></ul><div class="catalog-actions"><a class="btn-vp-outline" href="https://viprint.com.mx/catalogo-digital/catalogo-uno.html">Ver ejemplo</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20un%20cat%C3%A1logo%20digital.">Cotizar</a></div></div>
+                </article>
+
+                <article class="catalog-card product-card" data-category="digital">
+                    <div class="catalog-card-media"><span class="catalog-badge">Digital</span><img src="img/webpage-1.gif" alt="Página web para negocio"></div>
+                    <div class="catalog-content"><h3>Página web</h3><p>Sitio web para presentar tu negocio, servicios, ubicación y medios de contacto con una imagen más formal.</p><ul class="spec-list"><li><i class="bi bi-check-circle-fill"></i> Diseño adaptable a celular.</li><li><i class="bi bi-check-circle-fill"></i> Ideal para complementar publicidad física.</li></ul><div class="catalog-actions"><a class="btn-vp-outline" href="https://viprint.com.mx/capsique/index.html">Ver ejemplo</a><a class="btn-vp-primary" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20cotizar%20una%20p%C3%A1gina%20web.">Cotizar</a></div></div>
+                </article>
+            </div>
+
+            <div class="catalog-cta mt-5 d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
+                <div>
+                    <h2 class="mb-2 text-white">¿No sabes qué producto le conviene a tu negocio?</h2>
+                    <p class="mb-0 text-white-50">Manda una foto de tu fachada o dinos tu giro y te recomendamos una opción viable.</p>
                 </div>
+                <a class="btn btn-light rounded-pill px-4 py-3" href="https://api.whatsapp.com/send?phone=524495169252&text=Hola%20ViPrint,%20quiero%20que%20me%20recomienden%20una%20opci%C3%B3n%20para%20mi%20negocio.">Pedir recomendación</a>
             </div>
         </div>
-
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card">
-                <img src="img/bandera-publicitaria.jpeg" alt="Bandera Publicitaria">
-                <div class="product-content">
-                    <h3>Banderas Publicitarias</h3>
-                    <p>Visibilidad inmediata para tu marca.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card">
-                <img src="img/carpa-personalizada.jpeg" alt="Carpa Personalizada">
-                <div class="product-content">
-                    <h3>Carpas Personalizadas</h3>
-                    <p>Presencia profesional en eventos y activaciones.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card">
-                <img src="img/toldo-fijo.jpeg" alt="Toldo">
-                <div class="product-content">
-                    <h3>Toldos Fijos y Enrollables</h3>
-                    <p>Funcionalidad y branding en un solo producto.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card">
-                <img src="img/vinil-microperforado.jpeg" alt="Vinil Microperforado">
-                <div class="product-content">
-                    <h3>Vinil Microperforado</h3>
-                    <p>Publicidad visible sin perder iluminación.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIGITAL -->
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card digital"
-                onclick="openModal(
-                    'Menú digital',
-                    'img/menu-2.gif',
-                    'Menú digital para mostrar tus platillos, precios y promociones. Editable, accesible desde cualquier dispositivo y fácil de compartir.' +
-                    'Además, permite pedidos directos desde el menú.'
-                    
-                )">
-
-                <div class="mini-slider">
-                    <img src="img/menu-1.gif" class="active">
-                    <img src="img/menu-2.gif">
-                    <img src="img/menu-3.png">
-                </div>
-
-                <div class="product-content">
-                    <h3>Menú digital</h3>
-                    <p>Modernos, editables y con pedidos directos.</p>
-                    <p><a href="https://viprint.com.mx/menu/ejemplo-menu/menu-uno.html">Ejemplo 1</a><br><a href="https://viprint.com.mx/menu/ejemplo-menu/menu-dos.html">Ejemplo 2</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card digital"
-                onclick="openModal(
-                    'Catalogo digital',
-                    'img/catalogo-1.jpeg',
-                    'Catalogo digital para mostrar tus productos, precios y promociones. Editable, accesible desde cualquier dispositivo y fácil de compartir.' +
-                    'Muestra tu ubicación, whatsapp y más.'
-                )">
-
-                <div class="mini-slider">
-                    <img src="img/Catalogo.gif" class="active">
-                    <img src="img/catalogo-2.png">
-                </div>
-
-                <div class="product-content">
-                    <h3>Catalogo digital</h3>
-                    <p>Modernos, editables y muestra la información de tu negocio.</p>
-                    <p><a href="https://viprint.com.mx/catalogo-digital/catalogo-uno.html">Ejemplo </a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-            <div class="product-card digital"
-                onclick="openModal(
-                    'Página web',
-                    'img/webpage-1.jpeg',
-                    'Catalogo digital para mostrar tus productos, precios y promociones. Editable, accesible desde cualquier dispositivo y fácil de compartir.' +
-                    'Muestra tu ubicación, whatsapp y más.'
-                )">
-
-                <div class="mini-slider">
-                    <img src="img/webpage-1.gif" class="active">
-                    <img src="img/webpage-2.gif">
-                    <img src="img/webpage-3.png">
-                </div>
-
-                <div class="product-content">
-                    <h3>Página web</h3>
-                    <p>Dale una vista profesional a tu negocio en línea.</p>
-                    <p><a href="https://viprint.com.mx/capsique/index.html">Ejemplo</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="products-cta text-center mt-5">
-        <h4>¿Buscas algo más?</h4>
-        <p>Diseñamos soluciones a la medida de tu negocio.</p>
-        <a href="#contacto" class="viprint-btn">Cotiza ahora</a>
-    </div>
-
-</section>
-<!-- Productos End -->
-
+    </section>
+    <!-- Products End -->
 
     <!-- Features Start -->
     <div class="container-fluid py-6 px-5">
@@ -257,133 +722,102 @@
         <div class="row g-5">
             <div class="col-lg-4">
                 <div class="row g-5">
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-cubes fs-4 text-white"></i>
-                        </div>
-                        <h3>La mejor calidad</h3>
-                        <p class="mb-0">Prueba la excelencia en cada impresión: colores vivos, materiales resistentes y acabados que marcan la diferencia.</p>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-percent fs-4 text-white"></i>
-                        </div>
-                        <h3>99% Éxito en entregas</h3>
-                        <p class="mb-0">Cumplimos con tus tiempos. Más del 99% de nuestros proyectos llegan puntuales y con la máxima calidad.</p>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-award fs-4 text-white"></i>
-                        </div>
-                        <h3>Empresa Reconocida</h3>
-                        <p class="mb-0">Hemos sido reconocidos por la innovación y la calidad de nuestros productos publicitarios.</p>
-                    </div>
+                    <div class="col-12"><div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;"><i class="fa fa-cubes fs-4 text-white"></i></div><h3>La mejor calidad</h3><p class="mb-0">Colores vivos, materiales resistentes y acabados que ayudan a que tu marca se vea profesional.</p></div>
+                    <div class="col-12"><div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;"><i class="fa fa-percent fs-4 text-white"></i></div><h3>Entregas confiables</h3><p class="mb-0">Cuidamos tiempos, impresión y detalles para que tu pedido llegue listo para usarse.</p></div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="d-block bg-primary h-100 text-center">
-                    <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                    <div class="p-4">
-                        <p class="text-white mb-4"> En ViPrint convertimos tus ideas en impresiones que destacan. Somos expertos en publicidad impresa: banderas,
-                             lonas, viniles, etiquetas y más, con la mejor calidad y atención personalizada.</p>
-                             <br>
-                        <p class="text-white mb-4"> Te atendemos en Av. Paseo de la Cruz 1744, Triana, Aguascalientes, y realizamos envíos a todo México.</p>
-                        <br>
-                        <p class="text-white mb-4"><b>¡Donde todos miran, ahí está ViPrint!</b></p>
-                    </div>
-                </div>
+                <div class="d-block bg-primary h-100 text-center"><img class="img-fluid" src="img/carousel-1.jpg" alt="ViPrint Publicidad"><div class="p-4"><p class="text-white mb-4">En ViPrint convertimos tus ideas en impresiones que destacan: banderas, lonas, viniles, etiquetas y más.</p><p class="text-white mb-0"><b>¡Donde todos miran, ahí está ViPrint!</b></p></div></div>
             </div>
             <div class="col-lg-4">
                 <div class="row g-5">
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="far fa-smile-beam fs-4 text-white"></i>
-                        </div>
-                        <h3>100% Clientes satisfechos</h3>
-                        <p class="mb-0">Nuestra prioridad es tu satisfacción. Cada pedido es atendido con atención personalizada y compromiso total.</p>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-user-tie fs-4 text-white"></i>
-                        </div>
-                        <h3>Equipo profesional</h3>
-                        <p class="mb-0">Contamos con un equipo experto que te guiará en cada etapa: desde el diseño hasta la instalación.</p>
-                    </div>
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-headset fs-4 text-white"></i>
-                        </div>
-                        <h3>Servicio al cliente</h3>
-                        <p class="mb-0">¿Tienes dudas o requieres asistencia? Estamos disponibles para ti.</p>
-                    </div>
+                    <div class="col-12"><div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;"><i class="fa fa-user-tie fs-4 text-white"></i></div><h3>Atención personalizada</h3><p class="mb-0">Te orientamos desde el diseño hasta la selección del producto más útil para tu negocio.</p></div>
+                    <div class="col-12"><div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;"><i class="fa fa-headset fs-4 text-white"></i></div><h3>Servicio al cliente</h3><p class="mb-0">Resolvemos dudas, recibimos archivos y damos seguimiento por WhatsApp.</p></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Features Start -->
-    
+    <!-- Features End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-secondary p-5">
         <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Enlaces</h3>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-secondary mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Inicio</a>
-                    <a class="text-secondary mb-2" href="nosotros.html"><i class="bi bi-arrow-right text-primary me-2"></i>Nosotros</a>
-                    <a class="text-secondary mb-2" href="contacto.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contacto</a>
-                    <a class="text-secondary mb-2" href="productos.html"><i class="bi bi-arrow-right text-primary me-2"></i>Productos</a>
-                    <a class="text-secondary mb-2" href="ubicacion.html"><i class="bi bi-arrow-right text-primary me-2"></i>Ubicación</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Contacto</h3>
-                <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i><a href="https://maps.app.goo.gl/1fWEKFiNEmcL6nGaA"> Av. Paseo de la Cruz 1744, Triana, 20240 Aguascalientes, Ags.</a></p>
-                <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>viprintpubli@gmail.com</p>
-                <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>449 516 9252</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Síguenos</h3>
-                <div class="d-flex">
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://www.facebook.com/garciaygomez"><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/viprintpubli/"><i class="fab fa-instagram fw-normal"></i></a>
-                </div>
+            <div class="col-lg-3 col-md-6"><h3 class="text-white mb-4">Enlaces</h3><div class="d-flex flex-column justify-content-start"><a class="text-secondary mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Inicio</a><a class="text-secondary mb-2" href="nosotros.html"><i class="bi bi-arrow-right text-primary me-2"></i>Nosotros</a><a class="text-secondary mb-2" href="contacto.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contacto</a><a class="text-secondary mb-2" href="productos.html"><i class="bi bi-arrow-right text-primary me-2"></i>Productos</a><a class="text-secondary mb-2" href="ubicacion.html"><i class="bi bi-arrow-right text-primary me-2"></i>Ubicación</a></div></div>
+            <div class="col-lg-3 col-md-6"></div>
+            <div class="col-lg-3 col-md-6"><h3 class="text-white mb-4">Contacto</h3><p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i><a href="https://maps.app.goo.gl/1fWEKFiNEmcL6nGaA"> Av. Paseo de la Cruz 1744, Triana, 20240 Aguascalientes, Ags.</a></p><p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>viprintpubli@gmail.com</p><p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>449 516 9252</p></div>
+            <div class="col-lg-3 col-md-6"><h3 class="text-white mb-4">Síguenos</h3><div class="d-flex"><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://www.facebook.com/garciaygomez"><i class="fab fa-facebook-f fw-normal"></i></a><a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/viprintpubli/"><i class="fab fa-instagram fw-normal"></i></a></div></div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-secondary text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;"><p class="m-0">ViPrint Publicidad</p></div>
+    <!-- Footer End -->
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <div class="product-modal" id="catalogModal">
+        <div class="modal-box">
+            <img id="catalogModalImage" src="" alt="">
+            <div class="modal-content-vp">
+                <span class="section-kicker"><i class="bi bi-info-circle-fill"></i> Detalle</span>
+                <h2 id="catalogModalTitle" class="mt-3 mb-3"></h2>
+                <p id="catalogModalDescription" class="text-muted mb-4"></p>
+                <a id="catalogModalWhatsapp" class="btn-vp-primary" href="#"><i class="bi bi-whatsapp"></i> Cotizar este producto</a>
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-secondary text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
-        <p class="m-0">ViPrint Publicidad</p>
-    </div>
-    <!-- Footer End -->
+    <span class="modal-close" id="catalogModalClose" onclick="closeCatalogModal()">×</span>
 
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <div class="product-modal" id="productModal">
-    <span class="modal-close" onclick="closeModal()">✕</span>
-    <div class="modal-box">
-        <img id="modalImage">
-        <div class="modal-content">
-            <h2 id="modalTitle"></h2>
-            <p id="modalDescription"></p>
-        </div>
-    </div>
-</div>
+    <script>
+        const chips = document.querySelectorAll('.filter-chip');
+        const cards = document.querySelectorAll('.catalog-card');
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(item => item.classList.remove('active'));
+                chip.classList.add('active');
+                const filter = chip.dataset.filter;
+
+                cards.forEach(card => {
+                    const category = card.dataset.category || '';
+                    const visible = filter === 'all' || category.includes(filter);
+                    card.style.display = visible ? '' : 'none';
+                });
+            });
+        });
+
+        function openCatalogModal(title, image, description) {
+            const modal = document.getElementById('catalogModal');
+            const close = document.getElementById('catalogModalClose');
+            document.getElementById('catalogModalTitle').textContent = title;
+            document.getElementById('catalogModalImage').src = image;
+            document.getElementById('catalogModalImage').alt = title;
+            document.getElementById('catalogModalDescription').textContent = description;
+            document.getElementById('catalogModalWhatsapp').href = 'https://api.whatsapp.com/send?phone=524495169252&text=' + encodeURIComponent('Hola ViPrint, quiero cotizar: ' + title + '.');
+            modal.classList.add('show');
+            close.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCatalogModal() {
+            document.getElementById('catalogModal').classList.remove('show');
+            document.getElementById('catalogModalClose').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('catalogModal').addEventListener('click', function (event) {
+            if (event.target === this) closeCatalogModal();
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeCatalogModal();
+        });
+    </script>
 </body>
 
 </html>
