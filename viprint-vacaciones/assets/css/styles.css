@@ -1,0 +1,106 @@
+:root {
+    --viprint-red: #A92624;
+    --viprint-red-dark: #801d1b;
+    --viprint-light: #F8F6F8;
+    --viprint-text: #292929;
+    --viprint-soft-red: #f2e2e1;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--viprint-light);
+    color: var(--viprint-text);
+}
+
+.viprint-navbar { background: var(--viprint-red); }
+.navbar-brand { letter-spacing: .2px; }
+.card {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 .35rem 1.2rem rgba(0, 0, 0, .07);
+}
+.card-header { border-radius: 1rem 1rem 0 0 !important; }
+.form-label { font-weight: 700; }
+.required::after { content: ' *'; color: var(--viprint-red); }
+
+.btn-viprint {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--viprint-red);
+    --bs-btn-border-color: var(--viprint-red);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--viprint-red-dark);
+    --bs-btn-hover-border-color: var(--viprint-red-dark);
+}
+
+.text-viprint { color: var(--viprint-red) !important; }
+.bg-viprint-soft { background: var(--viprint-soft-red); }
+.border-viprint { border-color: var(--viprint-red) !important; }
+
+.metric-card .metric-number {
+    color: var(--viprint-red);
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 800;
+}
+.metric-card .metric-label { color: #666; font-size: .9rem; }
+
+.table thead th {
+    background: #efe4e4;
+    color: #631817;
+    white-space: nowrap;
+}
+.table td { vertical-align: middle; }
+
+.balance-box {
+    padding: 1.1rem;
+    border: 2px solid var(--viprint-red);
+    border-radius: 1rem;
+    background: #fff;
+    text-align: center;
+}
+.balance-box strong {
+    display: block;
+    color: var(--viprint-red);
+    font-size: 2.25rem;
+    line-height: 1.1;
+}
+
+.helper-panel {
+    border-left: 4px solid var(--viprint-red);
+    background: #fff;
+    padding: 1rem;
+    border-radius: .7rem;
+}
+
+.print-sheet {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2.2rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 .35rem 1.3rem rgba(0,0,0,.08);
+}
+.print-header { border-bottom: 4px solid var(--viprint-red); }
+.company-name { color: var(--viprint-red); font-size: 1.25rem; font-weight: 800; }
+.folio-box { min-width: 165px; border: 1px solid #bbb; padding: .55rem .75rem; text-align: center; }
+.folio-box span { display: block; color: #666; font-size: .75rem; text-transform: uppercase; }
+.folio-box strong { color: var(--viprint-red); }
+.detail-table th { width: 30%; background: #f4eded; color: #591615; }
+.signature-section { margin-top: 5rem; }
+.signature-line { border-top: 1px solid #222; padding-top: .45rem; text-align: center; font-weight: 700; }
+.signature-line span { display: block; color: #666; font-size: .82rem; font-weight: 400; }
+.legal-note { font-size: .84rem; line-height: 1.5; color: #555; }
+
+@media (max-width: 767.98px) {
+    .action-buttons .btn { width: 100%; margin-bottom: .35rem; }
+    .print-sheet { padding: 1rem; }
+}
+
+@media print {
+    @page { size: letter; margin: 12mm; }
+    body { background: #fff; }
+    nav, .no-print, footer { display: none !important; }
+    main.container { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+    .print-sheet { max-width: none; border: 0; box-shadow: none; padding: 0; }
+    .print-header { border-bottom-color: #A92624 !important; }
+}
