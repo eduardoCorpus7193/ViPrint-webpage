@@ -86,7 +86,11 @@ body {
 .permit-title { color: var(--viprint-red); font-weight: 800; letter-spacing: .3px; }
 .permit-data th { width: 32%; background: #f4eded; color: #591615; }
 .declaration { line-height: 1.8; text-align: justify; font-size: 1rem; }
-.signature-section { margin-top: 4.5rem; }
+.signature-section {
+    margin-top: 2.25rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
 .signature-line { border-top: 1px solid #222; padding-top: .45rem; text-align: center; font-weight: 700; }
 .signature-line span { display: block; color: #666; font-size: .82rem; font-weight: 400; }
 .return-line { border-bottom: 1px solid #222; display: inline-block; min-width: 140px; text-align: center; }
@@ -99,10 +103,83 @@ body {
 }
 
 @media print {
-    @page { size: letter; margin: 12mm; }
-    body { background: #fff; }
-    nav, .no-print, footer { display: none !important; }
-    main.container { max-width: none !important; margin: 0 !important; padding: 0 !important; }
-    .print-sheet { max-width: none; border: 0; box-shadow: none; padding: 0; }
-    .print-header { border-bottom-color: #A92624 !important; }
+    @page {
+        size: letter;
+        margin: 8mm 10mm;
+    }
+
+    body {
+        background: #fff;
+        font-size: 10pt;
+    }
+
+    nav,
+    .no-print,
+    footer {
+        display: none !important;
+    }
+
+    main.container {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .print-sheet {
+        max-width: none;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .print-header {
+        border-bottom-color: #A92624 !important;
+        padding-bottom: .45rem !important;
+        margin-bottom: .65rem !important;
+    }
+
+    .permit-title {
+        margin-bottom: .65rem !important;
+        font-size: 15pt;
+    }
+
+    .permit-data {
+        margin-bottom: .7rem !important;
+    }
+
+    .permit-data th,
+    .permit-data td {
+        padding: .3rem .45rem !important;
+        line-height: 1.2;
+    }
+
+    .print-sheet .mb-4 {
+        margin-bottom: .7rem !important;
+    }
+
+    .print-sheet .p-3 {
+        padding: .55rem !important;
+    }
+
+    .declaration {
+        margin-bottom: 0;
+        font-size: 9.5pt;
+        line-height: 1.4;
+    }
+
+    .signature-section {
+        margin-top: 1.7rem !important;
+        padding-top: 2.4rem;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .signature-line {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .internal-note {
+        margin-top: .8rem;
+    }
 }
