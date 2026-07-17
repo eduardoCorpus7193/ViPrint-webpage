@@ -28,6 +28,11 @@ $recent = $pdo->query(
 $pageTitle = 'Control de horas extras';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<head>
+<link href="../img/favicon.ico" rel="icon">
+</head>
+
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
     <div>
         <h1 class="h3 mb-1">Control de horas extras</h1>

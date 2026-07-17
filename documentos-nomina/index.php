@@ -26,9 +26,17 @@ $recent = $pdo->query(
      LIMIT 8'
 )->fetchAll();
 
+
 $pageTitle = 'Documentos internos de nómina';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!doctype html>
+<html lang="es"></html>
+<head>
+<link href="../img/favicon.ico" rel="icon">
+</head>
+
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
     <div>
         <h1 class="h3 mb-1">Documentos internos de nómina</h1>

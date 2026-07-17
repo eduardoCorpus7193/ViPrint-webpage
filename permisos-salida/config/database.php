@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-$host = '127.0.0.1';
-$db   = 'permisos_salida';
-$user = 'root';
-$pass = '';
+$host = 'localhost';
+$db   = 'viprintc_permisos_salida';
+$user = 'viprintc_permisos_salida';
+$pass = 'Qamp3pJ8kpEn2E4PQUdC';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host={$host};dbname={$db};charset={$charset}";

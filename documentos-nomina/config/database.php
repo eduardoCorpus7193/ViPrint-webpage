@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 $host = '127.0.0.1';
-$db   = 'documentos_nomina';
-$user = 'root';
-$pass = '';
+$db   = 'viprintc_documentos-nomina';
+$user = 'viprintc_documentos-nomina';
+$pass = 'YCVWZatNaFgJa9CB4EE6';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host={$host};dbname={$db};charset={$charset}";
