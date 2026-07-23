@@ -1,9 +1,9 @@
 <?php
 // Configuración inicial para XAMPP. En hosting cambia estos datos.
 $host = '127.0.0.1';
-$db   = 'cotizaciones_viprint';
-$user = 'root';
-$pass = '';
+$db   = 'viprintc_cotizaciones';
+$user = 'viprintc_cotizaciones';
+$pass = 'kdSJXgNwTRUE9byWQp9t';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host={$host};dbname={$db};charset={$charset}";

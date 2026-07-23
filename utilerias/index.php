@@ -35,7 +35,7 @@ $systems = [
         'description' => 'Genera cotizaciones formales para clientes.',
         'url' => 'https://viprint.com.mx/cotizaciones-viprint/',
         'icon' => 'document',
-        'label' => 'Abrir documentos',
+        'label' => 'Abrir cotizaciones',
     ],
 ];
 
