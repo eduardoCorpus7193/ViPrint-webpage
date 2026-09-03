@@ -1,9 +1,9 @@
 <?php
 // Configura estos datos según tu hosting.
 $host = 'localhost';
-$db   = 'notas_viprint_imagen';
-$user = 'root';
-$pass = '';
+$db   = 'viprintc_v2';
+$user = 'viprintc_v2';
+$pass = '2uGxvxUhAa3jgvCbzYgP';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host={$host};dbname={$db};charset={$charset}";

@@ -1,0 +1,51 @@
+.ticket58.ticket58-compact {
+  width: 58mm;
+  max-width: 58mm;
+  padding: 4mm 3mm;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  line-height: 1.15;
+  color: #111;
+  background: #fff;
+}
+.ticket58-compact .ticket-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.1;
+}
+.ticket58-compact .ticket-subtitle,
+.ticket58-compact .ticket-footer {
+  text-align: center;
+  font-size: 9px;
+}
+.ticket58-compact .ticket-line {
+  border-top: 1px dashed #111;
+  margin: 4px 0;
+}
+.ticket58-compact .ticket-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 1px 0;
+}
+.ticket58-compact .ticket-row span {
+  white-space: nowrap;
+}
+.ticket58-compact .ticket-row strong {
+  text-align: right;
+  word-break: break-word;
+}
+.ticket58-compact .ticket-total {
+  font-size: 11px;
+}
+.ticket58-compact .ticket-text {
+  margin: 1px 0;
+  word-break: break-word;
+}
+@media print {
+  body * { visibility: hidden !important; }
+  .print-area, .print-area * { visibility: visible !important; }
+  .print-area { position: absolute; left: 0; top: 0; }
+  @page { size: 58mm auto; margin: 0; }
+}

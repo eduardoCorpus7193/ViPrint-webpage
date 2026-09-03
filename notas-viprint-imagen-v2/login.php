@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ingresar · Notas V2</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="<?= url('assets/css/styles.css') ?>"></head><body>
 <div class="container py-5" style="max-width:460px">
   <div class="card p-4">
-    <div class="text-center mb-3"><div class="brand-mark mx-auto mb-2" style="width:58px;height:58px;font-size:1.7rem">V</div><h1 class="h4">Notas ViPrint / Imagen V2</h1><p class="text-muted small mb-0">Control de pedidos, pagos, costos, mermas y comisiones.</p></div>
+    <div class="text-center mb-3"><img src="<?= h(logo_src()) ?>" alt="ViPrint" class="login-logo mb-3"><h1 class="h4">Notas ViPrint / Imagen V2</h1><p class="text-muted small mb-0">Control de pedidos, pagos, caja, costos, mermas y comisiones.</p></div>
     <?php if($error): ?><div class="alert alert-danger"><?= h($error) ?></div><?php endif; ?>
     <form method="post">
       <label class="form-label">Usuario</label><input class="form-control mb-3" name="usuario" required autofocus>

@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 require_login();
+require_once __DIR__ . '/includes/header.php';
 if($_SERVER['REQUEST_METHOD']==='POST'){
   if(!can_edit_prices()){ flash('danger','No tienes permiso para editar precios.'); redirect_to('catalogo.php'); }
   $id=(int)($_POST['id']??0);

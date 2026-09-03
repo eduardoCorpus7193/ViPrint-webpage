@@ -1,158 +1,70 @@
-# Sistema de Notas ViPrint / Imagen V2
+# Sistema de Notas ViPrint / Imagen V2 estable con Caja
 
-Sistema web en PHP, MySQL, HTML, CSS, JS y Bootstrap para controlar notas de ViPrint e Imagen con separación por empresa, pagos, saldos, costos, ganancias, mermas, comisiones y estados por proceso.
+Esta versión incluye:
 
-## Cambios principales de la V2
+- Login con logo de ViPrint.
+- Panel principal con logo de ViPrint.
+- Notas ViPrint e Imagen en el mismo sistema.
+- Filtros por empresa y búsqueda de notas.
+- Catálogo de promociones/productos.
+- Registro de partidas, pagos, mermas y comisiones.
+- Caja diaria.
+- Corte diario.
+- Diagnóstico para evitar pantalla en blanco.
 
-- ViPrint e Imagen en el mismo sistema, pero con filtros y reportes separados.
-- Folios separados por empresa según el folio físico de cada nota.
-- Catálogo propio por empresa.
-- ViPrint incluye promociones editables:
-  - Promo Glass, Buzz, Beta, Sky, Pixel, Nube, Nebula, Maxiventas, Light, Rush, Activación, Super Promo y Gamma.
-- Imagen maneja productos sin promociones:
-  - Bandera grande, mediana, jumbo y tela sin estructura.
-- Promociones y precios editables.
-- Partidas libres para artículos no catalogados.
-- Costos estimados y reales por producto/partida:
-  - Material.
-  - Mano de obra.
-  - Maquila.
-  - Instalación.
-- Cálculo de utilidad:
-  - Total cobrado menos costos.
-  - Total cobrado menos costos y comisiones.
-  - Total cobrado menos costos, comisiones y mermas.
-- Registro de pagos/abonos/liquidaciones/devoluciones con:
-  - Fecha.
-  - Monto.
-  - Método: efectivo, transferencia, tarjeta u otro.
-  - Campo libre para especificar método cuando sea “otro”.
-  - Referencia o comprobante.
-- Fecha de liquidación automática cuando el saldo llega a cero.
-- Estados separados:
-  - Contacto.
-  - Diseño.
-  - Aprobación para impresión.
-  - Producción.
-  - Instalación.
-  - Entrega.
-  - Pago.
-- Registro de mermas:
-  - Papel perdido.
-  - Tela perdida.
-  - Tinta desperdiciada.
-  - Reimpresión.
-  - Error de diseño.
-  - Error de impresión.
-  - Cliente canceló.
-  - Otro.
-- Registro de responsable probable, área, descripción y costo de merma.
-- Comisiones por diseñador:
-  - Ángel puede aparecer sin comisión por banderas.
-  - Diseños extra, logos, lonas u otros sí pueden registrar comisión.
-  - Andrea y Jaquelin pueden manejar comisiones variables.
-- Reporte de ingresos por método de pago por día y periodo.
-- Reporte de comisiones pendientes y pagadas.
-- Reportes financieros visibles solo para usuarios autorizados.
+## Actualizar un sistema que ya tiene registros
 
-## Usuarios iniciales
-
-Contraseña inicial para todos: `123456`
-
-- `admin` - Administrador.
-- `luis` - Dirección, finanzas, precios y borrar registros.
-- `danae` - Operativo, notas, pagos y producción.
-- `mafer` - Administración, finanzas, precios, mermas, adeudos y reportes.
-- `eduardo` - Asesor externo, sistemas, finanzas y precios.
-- `angel` - Diseñador.
-- `andrea` - Diseñadora externa.
-- `jaquelin` - Diseñadora externa.
-
-Cambia las contraseñas después de instalar.
-
-## Instalación nueva
-
-1. Sube la carpeta a tu hosting, por ejemplo:
+1. Haz respaldo de la base de datos en phpMyAdmin.
+2. Haz respaldo de la carpeta actual del sistema en el hosting.
+3. Sube/reemplaza los archivos de este paquete en la misma carpeta del sistema.
+4. Conserva tus credenciales reales en `config/database.php`.
+5. Revisa `config/app.php` y confirma que `BASE_URL` coincida con la carpeta real.
+6. Ejecuta en phpMyAdmin el archivo:
 
 ```text
-public_html/notas-viprint-imagen-v2/
+database/update_caja_v2.sql
 ```
 
-2. Configura la base de datos en:
+Ese archivo no borra notas, pagos ni usuarios. Solo crea:
 
 ```text
-config/database.php
+v2_caja_movimientos
+v2_cortes_diarios
 ```
 
-3. Importa en phpMyAdmin:
+y copia los pagos existentes a caja sin duplicarlos.
 
-```text
-database/schema_v2.sql
-```
-
-4. Abre:
-
-```text
-https://viprint.com.mx/notas-viprint-imagen-v2/
-```
-
-## Migrar datos del sistema anterior
-
-Este paquete incluye un migrador para conservar los registros ya existentes del sistema anterior.
-
-### Antes de migrar
-
-1. Haz respaldo de la base actual desde phpMyAdmin.
-2. No borres las tablas antiguas: `notas`, `nota_detalles`, `abonos`, `usuarios`, etc.
-3. Sube esta versión V2 a una carpeta nueva.
-4. Configura `config/database.php` apuntando a la misma base donde está el sistema anterior.
-
-### Ejecutar migración
-
-Abre en el navegador:
-
-```text
-https://viprint.com.mx/notas-viprint-imagen-v2/migrar_v1_a_v2.php?clave=migrar2026
-```
-
-El script:
-
-- Crea las tablas V2 con prefijo `v2_`.
-- No borra las tablas viejas.
-- Copia usuarios existentes.
-- Copia notas existentes.
-- Copia detalles de notas.
-- Copia abonos existentes.
-- Convierte los estados antiguos al nuevo esquema.
-- Recalcula totales, saldos, pagos y utilidades.
-
-Cuando termine la migración, elimina o renombra `migrar_v1_a_v2.php` por seguridad.
-
-## Diagnóstico
-
-Abre:
+7. Abre:
 
 ```text
 https://viprint.com.mx/notas-viprint-imagen-v2/diagnostico.php
 ```
 
-Debe mostrar:
+Debe mostrar que existen las tablas `v2_caja_movimientos` y `v2_cortes_diarios`.
 
-- PHP activo.
-- PDO activo.
-- PDO MySQL activo.
-- Tablas V2 creadas.
-
-## Recomendaciones de uso
-
-- Todo pedido debe registrarse como nota.
-- Toda nota con diseño debe asignarse a un diseñador.
-- El diseñador actualiza contacto, diseño y aprobación.
-- Danae actualiza producción, instalación, entrega y pagos.
-- Mafer revisa montos, saldos, mermas, ganancias y comisiones.
-- Luis autoriza cancelaciones, salidas de dinero, precios especiales importantes y eliminación de registros.
-- Eduardo mantiene el sistema y respaldos.
+8. Abre el sistema normalmente.
 
 ## Importante
 
-Este sistema es administrativo. No sustituye contabilidad, facturación, CFDI ni obligaciones fiscales.
+No vuelvas a importar el archivo viejo `schema_v2(1).sql`, porque tenía una parte incorrecta en productos de Imagen. Si necesitas instalar desde cero, usa:
+
+```text
+database/schema_v2_CORREGIDO_FINAL.sql
+```
+
+## Si aparece pantalla en blanco
+
+Esta versión muestra un mensaje de error visible. Revisa:
+
+- `config/database.php`
+- `config/app.php`
+- que exista `v2_empresas`
+- que exista `v2_usuarios`
+- que exista `v2_notas`
+- que ya se haya ejecutado `database/update_caja_v2.sql`
+
+Cuando ya funcione, puedes cambiar en `config/app.php`:
+
+```php
+define('APP_DEBUG', false);
+```

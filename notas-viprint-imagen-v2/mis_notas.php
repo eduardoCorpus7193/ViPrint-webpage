@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 require_login();
+require_once __DIR__ . '/includes/header.php';
 $uid=(int)current_user()['id'];
 $stmt=db()->prepare("SELECT n.*, e.nombre empresa FROM v2_notas n JOIN v2_empresas e ON e.id=n.empresa_id WHERE n.disenador_id=? AND n.estado_entrega <> 'cancelada' ORDER BY n.fecha_nota DESC,n.id DESC LIMIT 200");
 $stmt->execute([$uid]); $rows=$stmt->fetchAll();

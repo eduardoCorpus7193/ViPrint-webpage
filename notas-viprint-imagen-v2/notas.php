@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 require_login();
+require_once __DIR__ . '/includes/header.php';
 $q = trim($_GET['q'] ?? ''); $empresa=$_GET['empresa']??''; $pago=$_GET['pago']??''; $diseno=$_GET['diseno']??'';
 $params=[]; $where='1=1';
 if($q!==''){ $where.=" AND (n.folio LIKE ? OR n.cliente_nombre LIKE ? OR n.negocio LIKE ? OR n.telefono LIKE ?)"; $like='%'.$q.'%'; array_push($params,$like,$like,$like,$like); }

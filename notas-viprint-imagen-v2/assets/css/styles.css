@@ -16,3 +16,93 @@ body{background:var(--vip-bg);font-family:system-ui,-apple-system,"Segoe UI",san
 .print-area{background:white;border-radius:18px;padding:24px}.cut-line{border-top:1px dashed #999;margin:20px 0}
 @media print{.navbar,.no-print,footer,.btn{display:none!important}body{background:#fff}.container-fluid{padding:0!important}.card,.print-area{box-shadow:none;border-radius:0}.card-header{border-radius:0!important}}
 @media(max-width:768px){.table-responsive{font-size:.86rem}.stat .value{font-size:1.15rem}.hide-mobile{display:none}}
+.nav-logo-box{display:inline-flex;align-items:center;justify-content:center;width:42px;height:34px;border-radius:10px;background:#fff;padding:4px;overflow:hidden}
+.nav-logo-box img{max-width:100%;max-height:100%;object-fit:contain}.login-logo{max-height:82px;width:auto}.dashboard-logo{max-height:72px;width:auto}.vip-subtitle{color:#6b6b6b}
+
+/* Ticket térmico 58mm */
+.ticket58{
+  width:58mm;
+  max-width:58mm;
+  min-height:120mm;
+  background:#fff;
+  color:#000;
+  font-family:"Courier New",monospace;
+  font-size:11px;
+  line-height:1.25;
+  border-radius:0;
+  padding:8px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+.ticket58 hr{border:0;border-top:1px dashed #222;margin:6px 0;opacity:1}
+.ticket58 .fs-5{font-size:14px!important}
+@media print{
+  @page{size:58mm auto;margin:0}
+  body{background:#fff!important}
+  .ticket58{width:58mm;max-width:58mm;box-shadow:none;padding:4mm;margin:0;border:0}
+  .ticket58 *{color:#000!important}
+}
+
+/* Ajuste de ticket compacto 58mm */
+.ticket58 {
+  width: 58mm;
+  max-width: 58mm;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.18;
+  padding: 6px;
+  background: #fff;
+  color: #000;
+}
+.ticket58 hr {
+  margin: 5px 0;
+}
+@media print {
+  @page { size: 58mm auto; margin: 0; }
+  body { background: #fff !important; }
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm !important;
+    max-width: 58mm !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+  .no-print { display: none !important; }
+}
+/* Corrección impresión ticket 58mm */
+.ticket58{
+  width:58mm;
+  max-width:58mm;
+  min-height:auto!important;
+  background:#fff!important;
+  color:#000!important;
+  font-family:"Courier New",monospace!important;
+  font-size:10.5px!important;
+  line-height:1.12!important;
+  padding:5px!important;
+  box-shadow:none;
+}
+.ticket58 hr{border:0;border-top:1px dashed #222;margin:4px 0;opacity:1}
+.ticket58 .fs-5{font-size:12px!important}
+@media print{
+  @page{size:58mm auto;margin:0}
+  html,body{width:58mm!important;margin:0!important;padding:0!important;background:#fff!important}
+  body *{visibility:hidden!important}
+  .ticket58,.ticket58 *{visibility:visible!important;color:#000!important}
+  .ticket58{
+    position:absolute!important;
+    left:0!important;
+    top:0!important;
+    width:58mm!important;
+    max-width:58mm!important;
+    margin:0!important;
+    padding:3mm!important;
+    border:0!important;
+    box-shadow:none!important;
+    background:#fff!important;
+  }
+  .no-print,.navbar,footer,.btn{display:none!important}
+}

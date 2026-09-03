@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 require_login();
+require_once __DIR__ . '/includes/header.php';
 if(!can_finance()){ flash('danger','No tienes permiso para reportes financieros.'); redirect_to('index.php'); }
 $empresa=$_GET['empresa']??''; $desde=$_GET['desde']??date('Y-m-01'); $hasta=$_GET['hasta']??date('Y-m-d');
 $params=[$desde,$hasta]; $where="n.fecha_nota BETWEEN ? AND ?";
