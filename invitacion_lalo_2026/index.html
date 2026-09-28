@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071b3c">
+  <meta name="description" content="Invitación a una fiesta en el Balneario Valladolid, Aguascalientes.">
+  <title>¡Nos vamos al balneario!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <section class="gate" id="gate" aria-labelledby="gate-title">
+    <div class="gate__card">
+      <p class="eyebrow">⚠️ Alerta contra el aburrimiento</p>
+      <h1 id="gate-title">Se detectó un plan de alto riesgo…</h1>
+      <p>Posibles efectos: risas, alberca, cotorreo y ganas de no irse.</p>
+      <button class="btn btn--main" id="openInvite" type="button">
+        <span>Abrir invitación</span>
+      </button>
+    </div>
+  </section>
+
+  <main id="invite" class="invite" aria-hidden="true">
+    <header class="hero" id="inicio">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="cloud cloud--1" aria-hidden="true"></div>
+      <div class="cloud cloud--2" aria-hidden="true"></div>
+      <div class="bubble-field" id="bubbleField" aria-hidden="true"></div>
+
+      <div class="hero__copy">
+        <p class="eyebrow hero__eyebrow">Sábado 8 de agosto de 2026</p>
+        <h1><span id="guestName">¡Estás invitado!</span><br>Nos vamos al balneario</h1>
+        <p class="hero__lead">Alberca, buena compañía y una sola regla seria: venir con ganas de cotorrear.</p>
+
+        <div class="hero__actions">
+          <button class="btn btn--glass" id="soundToggle" type="button" aria-pressed="true">🔊 Sonido</button>
+        </div>
+      </div>
+
+      <div class="stage" aria-label="Animación del anfitrión">
+        <div class="road" aria-hidden="true"></div>
+        <img class="host host--active" id="hostFrame" src="assets/03_corriendo.png" alt="Anfitrión caminando hacia la fiesta">
+        <div class="splash splash--one" aria-hidden="true">💦</div>
+        <div class="splash splash--two" aria-hidden="true">💧</div>
+      </div>
+
+      <div class="ticker" aria-label="Avisos de la fiesta">
+        <div class="ticker__track" id="tickerTrack"></div>
+      </div>
+      <div class="wave" aria-hidden="true"></div>
+    </header>
+
+    <section class="countdown-section" aria-labelledby="countdown-title">
+      <p class="eyebrow">La cuenta regresiva ya empezó</p>
+      <h2 id="countdown-title">Falta poco para lanzarnos al agua</h2>
+      <div class="countdown" id="countdown" role="timer" aria-live="polite">
+        <div><strong id="days">00</strong><span>días</span></div>
+        <div><strong id="hours">00</strong><span>horas</span></div>
+        <div><strong id="minutes">00</strong><span>min</span></div>
+        <div><strong id="seconds">00</strong><span>seg</span></div>
+      </div>
+    </section>
+
+    <section class="details" id="detalles" aria-labelledby="details-title">
+      <div class="details__visual card">
+        <img src="assets/10_brindis_gti.png" alt="Anfitrión brindando frente a un Volkswagen GTI">
+        <div class="sticker sticker--top">No faltes</div>
+        <div class="sticker sticker--bottom">Planazo confirmado</div>
+      </div>
+
+      <div class="details__content">
+        <p class="eyebrow">Información importante</p>
+        <h2 id="details-title">El plan</h2>
+
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">📅</span>
+          <div>
+            <h3>Fecha</h3>
+            <p>Sábado 8 de agosto de 2026</p>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">🕐</span>
+          <div>
+            <h3>Hora</h3>
+            <p id="eventTime">9:30 AM</p>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">📍</span>
+          <div>
+            <h3>Lugar</h3>
+            <p><strong>Balneario Valladolid</strong><br>AGS 18, Col. Jardines del Valle, 20250 Jesús Gómez Portugal, Aguascalientes.</p>
+          </div>
+        </article>
+
+        <div class="details__buttons">
+          <a class="btn btn--main" href="https://maps.app.goo.gl/wWDXqC5cG3LxbQJt6" target="_blank" rel="noopener noreferrer">Abrir ubicación</a>
+          <button class="btn btn--dark" id="calendarBtn" type="button">Agregar al calendario</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="rules" aria-labelledby="rules-title">
+      <div class="rules__intro">
+        <p class="eyebrow">Código de convivencia acuática</p>
+        <h2 id="rules-title">Las reglas no tan serias</h2>
+      </div>
+
+      <div class="rule-grid">
+        <article class="rule-card"><span>😎</span><p>Prohibido llegar de malas.</p></article>
+        <article class="rule-card"><span>🩳</span><p>Traje de baño obligatorio.</p></article>
+        <article class="rule-card"><span>🧊</span><p>El que llegue tarde pone de más.</p></article>
+        <article class="rule-card"><span>🤣</span><p>Si vienes sin ganas de cotorrear, aquí te dan ganas.</p></article>
+      </div>
+    </section>
+
+    <section class="rsvp" aria-labelledby="rsvp-title">
+      <img class="rsvp__host" src="assets/07_inflable.png" alt="Anfitrión haciendo la seña de venir">
+      <div class="rsvp__content">
+        <p class="eyebrow">Falta una persona… tú</p>
+        <h2 id="rsvp-title">¿Te lanzas?</h2>
+        <p>Confirma para saber cuántos flotadores, hielos y ganas de fiesta tenemos que preparar.</p>
+        <div class="rsvp__buttons">
+          <button class="btn btn--main" id="whatsappBtn" type="button">Confirmar por WhatsApp</button>
+          <button class="btn btn--glass" id="shareBtn" type="button">Compartir invitación</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Hecho con agua, gasolina premium y cero ganas de aburrirse.</p>
+      <button id="replayBtn" type="button">Repetir entrada ↻</button>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <audio id="bgMusic" src="assets/cancion.mp3" preload="auto" loop></audio>
+  <script src="script.js"></script>
+</body>
+</html>
